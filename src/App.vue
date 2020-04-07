@@ -1,27 +1,35 @@
 <template>
-  <div
-    id="app"
-    :class="{
+  <div id="app">
+    <!-- :class="{
       dark: darkMode,
       light: !darkMode,
-    }"
-  >
-    <div id="themeButton" v-on:click="darkMode = !darkMode">
-      <i v-if="darkMode" class="fas fa-sun fa-2x"></i>
-      <i v-else class="fas fa-moon fa-2x"></i>
-    </div>
+    }" -->
+    <div id="nav">
+      <div id="homeButton">
+        <router-link to="/"><i class="fas fa-home fa-2x"></i></router-link>
+      </div>
 
-    <div id="nav" class="content">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/Works">Works</router-link>
+      <div
+        id="themeButton"
+        v-on:click="
+          darkMode = !darkMode;
+          cssTween();
+        "
+      >
+        <i v-if="darkMode" class="fas fa-sun fa-2x"></i>
+        <i v-else class="fas fa-moon fa-2x"></i>
+      </div>
     </div>
     <Navigation />
+
     <router-view />
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
+import { CSSRulePlugin } from "gsap/all";
+gsap.registerPlugin(CSSRulePlugin);
 import Navigation from "../src/components/Navigation";
 
 export default {
@@ -30,8 +38,29 @@ export default {
   },
   data() {
     return {
-      darkMode: true,
+      darkMode: false,
+      darkModeTween: new gsap.timeline({ paused: true }),
     };
+  },
+  methods: {
+    cssTween() {
+      this.darkModeTween.reversed(!this.darkModeTween.reversed());
+    },
+  },
+
+  mounted() {
+    var rule = CSSRulePlugin.getRule("#app:after");
+    this.darkModeTween.to("html", 1.4, { "--bg-primary": "#202326" });
+    this.darkModeTween.to(rule, 0.7, { opacity: 0 }, "<");
+    this.darkModeTween.set(rule, {
+      "background-image": "var(--background-image-dark)",
+    });
+    this.darkModeTween.to(rule, 0.7, { opacity: 1 });
+
+    this.darkModeTween.to("html", 0.5, { "--bg-secondary": "#823541" }, "<");
+    this.darkModeTween.to("html", 0.5, { "--text-primary": "#df485c" });
+    this.darkModeTween.to("html", 0.5, { "--text-secondary": "#d9d7d8" });
+    this.darkModeTween.reverse();
   },
 };
 </script>
@@ -45,6 +74,12 @@ body {
 
 html {
   box-sizing: border-box;
+  --text-primary: #202326;
+  --text-secondary: #595859;
+  --bg-primary: #d9d7d8;
+  --bg-secondary: #c1c0c1;
+  --background-image: url("../src/assets/background.svg");
+  --background-image-dark: url("../src/assets/background-dark.svg");
 }
 *,
 *:before,
@@ -56,76 +91,82 @@ html {
   font-size: 16px;
   font-family: reross-quadratic, sans-serif;
   letter-spacing: 1px;
-  --text-primary: #b6b6b6;
-  --text-secondary: #ececec;
-  --bg-primary: #23232e;
-  --bg-secondary: #141418;
-  --transition-speed: 600ms;
-  --background-image: url("../src/assets/background.svg");
 }
-
-// body::-webkit-scrollbar {
-//   width: 0.25rem;
-// }
-
-// body::-webkit-scrollbar-track {
-//   background: #823541;
-// }
-
-// body::-webkit-scrollbar-thumb {
-//   background: #df485c;
-// }
 
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: var(--text-primary);
+
+  min-height: 100vh;
+  //width: calc(100vw - 0.25rem);
+}
+
+#app:after {
+  content: "";
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
   background-image: var(--background-image);
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100vw;
   background-color: var(--bg-primary);
-  min-height: 100vh;
-  //width: calc(100vw - 0.25rem);
 }
 
 #themeButton {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1em;
+  padding: 0 1em;
   position: fixed;
   right: 0;
 }
 
+#homeButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1em;
+  position: fixed;
+  left: 0;
+}
+
 #nav {
-  padding: 30px;
-  z-index: 1;
+  padding: 1em;
 }
 
 a {
-  color: #2c3e50;
   text-decoration: none;
+  color: var(--text-primary);
 
   &.router-link-exact-active {
-    color: var(--text-secondary);
+    color: var(--text-primary);
   }
 }
 
+h1 {
+  color: var(--bg-secondary);
+}
+
 .dark {
-  --text-primary: #df485c;
-  --text-secondary: #d9d7d8;
-  --bg-primary: #202326;
-  --bg-secondary: #823541;
+  // --text-primary: #df485c;
+  // --text-secondary: #d9d7d8;
+  // --bg-primary: #202326;
+  // --bg-secondary: #823541;
   --background-image: url("../src/assets/background-dark.svg");
 }
 
 .light {
-  --text-primary: #202326;
-  --text-secondary: #595859;
-  --bg-primary: #d9d7d8;
-  --bg-secondary: #c1c0c1;
+  // --text-primary: #202326;
+  // --text-secondary: #595859;
+  // --bg-primary: #d9d7d8;
+  // --bg-secondary: #c1c0c1;
   --background-image: url("../src/assets/background.svg");
 }
 </style>

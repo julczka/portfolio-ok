@@ -22,13 +22,6 @@
         <li class="minor">Resume</li>
         <li class="minor">Contact</li>
       </ul>
-      <!-- <div class="row">
-        <div class="col-lg overlay">
-          <div class="nav">
-            
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -38,7 +31,7 @@ export default {
   name: "Navigation",
   data() {
     return {
-      showNav: true,
+      showNav: false,
     };
   },
 };
@@ -51,7 +44,6 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-
   z-index: 1;
 }
 
