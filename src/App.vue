@@ -10,23 +10,24 @@
       <i v-if="darkMode" class="fas fa-sun fa-2x"></i>
       <i v-else class="fas fa-moon fa-2x"></i>
     </div>
+
     <div id="nav" class="content">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/Works">Works</router-link>
     </div>
-
-    <router-view />
-    <router-view />
-    <router-view />
+    <Navigation />
     <router-view />
   </div>
 </template>
 
 <script>
-// import Bckgr from "./components/Bckgr.vue";
+import Navigation from "../src/components/Navigation";
 
 export default {
+  components: {
+    Navigation: Navigation,
+  },
   data() {
     return {
       darkMode: true,
@@ -52,7 +53,7 @@ html {
 }
 
 :root {
-  font-size: 20px;
+  font-size: 16px;
   font-family: reross-quadratic, sans-serif;
   letter-spacing: 1px;
   --text-primary: #b6b6b6;
@@ -63,17 +64,17 @@ html {
   --background-image: url("../src/assets/background.svg");
 }
 
-body::-webkit-scrollbar {
-  width: 0.25rem;
-}
+// body::-webkit-scrollbar {
+//   width: 0.25rem;
+// }
 
-body::-webkit-scrollbar-track {
-  background: #823541;
-}
+// body::-webkit-scrollbar-track {
+//   background: #823541;
+// }
 
-body::-webkit-scrollbar-thumb {
-  background: #df485c;
-}
+// body::-webkit-scrollbar-thumb {
+//   background: #df485c;
+// }
 
 #app {
   -webkit-font-smoothing: antialiased;
@@ -81,11 +82,12 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   color: var(--text-primary);
   background-image: var(--background-image);
-  background-position: center top;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100vw;
   background-color: var(--bg-primary);
   min-height: 100vh;
+  //width: calc(100vw - 0.25rem);
 }
 
 #themeButton {
@@ -93,20 +95,21 @@ body::-webkit-scrollbar-thumb {
   justify-content: flex-end;
   align-items: center;
   padding: 1em;
-  width: 100%;
+  position: fixed;
+  right: 0;
 }
 
 #nav {
   padding: 30px;
   z-index: 1;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+a {
+  color: #2c3e50;
+  text-decoration: none;
 
-    &.router-link-exact-active {
-      color: var(--text-secondary);
-    }
+  &.router-link-exact-active {
+    color: var(--text-secondary);
   }
 }
 
