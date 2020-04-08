@@ -5,9 +5,12 @@
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      width="1920"
-      height="1080"
-      viewBox="0 0 1920 1080"
+      x="0"
+      y="0"
+      width="100%"
+      height="100%"
+      viewBox="0 0 1900 1000"
+      preserveAspectRatio="none"
     >
       <defs>
         <linearGradient
@@ -83,23 +86,15 @@
 
 <script>
 export default {
-  name: "bckgr",
+  name: "Background.",
 };
 </script>
 
 <style scoped lang="scss">
-// #bcg-wrapper {
-//   width: 100%;
-//   position: fixed;
-//   z-index: 0;
-// }
-
-#b183346d-cd5a-41cf-b9ba-e6138f97b72a {
+#bcg-wrapper {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  top: 100;
+  top: 0;
   z-index: 0;
-  width: 100%;
+  width: 100vw;
 }
 </style>

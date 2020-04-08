@@ -6,8 +6,16 @@
 </template>
 
 <style lang="scss" scoped>
+.about {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .filler {
   height: 6000px;
   width: 50%;
+  opacity: 0.2;
+  background-color: aqua;
 }
 </style>

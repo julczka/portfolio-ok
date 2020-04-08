@@ -7,14 +7,20 @@
       </button>
     </div>
     <transition @enter="enter" @leave="leave" :css="false">
-      <div class="menu" v-if="showNav">
+      <div id="examples" class="menu" v-if="showNav">
         <transition-group appear @enter="listEnter('ul')" :css="false" tag="ul">
-          <ul v-for="(link, index) in navLinks" v-bind:key="index">
-            <li>
-              <router-link :to="link.path">{{ link.mainLink }}</router-link>
+          <ul v-for="link in navLinks" v-bind:key="link">
+            <li @click="showNav = !showNav" class="example">
+              <router-link :to="link.path" class="hover hover-3">{{
+                link.mainLink
+              }}</router-link>
             </li>
-            <ul v-for="(subLink, indeks) in link.subLinks" v-bind:key="indeks">
-              <li class="minor">{{ subLink }}</li>
+            <ul v-for="subLink in link.subLinks" v-bind:key="subLink">
+              <li class="minor example" @click="showNav = !showNav">
+                <router-link class="minor hover hover-3" to="/">{{
+                  subLink
+                }}</router-link>
+              </li>
             </ul>
           </ul>
           <!-- <li @click="showNav = !showNav">
@@ -71,12 +77,12 @@ export default {
     enter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, scale: 0 },
+        { opacity: 0, y: 300 },
         {
           opacity: 1,
-          scale: 1,
+          y: 0,
           duration: 0.7,
-          ease: "back.inOut(3)",
+          ease: "power4.out",
           onComplete: done,
         }
       );
@@ -85,14 +91,14 @@ export default {
     listEnter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, x: 400 },
+        { opacity: 0, x: 200 },
         {
           opacity: 1,
           x: 1,
-          duration: 1,
+          duration: 0.5,
           ease: "back.inOut(3)",
           onComplete: done,
-          stagger: 0.2,
+          stagger: 0.1,
         }
       );
     },
@@ -105,12 +111,12 @@ export default {
     leave(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 1, scale: 1 },
+        { opacity: 1, y: 0 },
         {
           opacity: 0,
-          scale: 0,
+          y: 400,
           duration: 0.7,
-          ease: "back.inOut(3)",
+          ease: "power4.in",
           onComplete: done,
         }
       );
@@ -126,7 +132,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 99;
 }
 
 button {
@@ -145,10 +151,14 @@ i {
   background: #df485c;
   border-radius: 50%;
   box-sizing: padding-box;
+  position: relative;
+  z-index: 99;
 }
 
 .menu {
   position: fixed;
+
+  z-index: 89;
   top: 0;
   overflow: hidden;
   display: flex;
@@ -171,15 +181,84 @@ li {
   color: #141418;
   text-align: center;
   font-size: 3rem;
+}
 
-  a {
-    color: #141418;
-  }
+a {
+  color: #141418;
 }
 
 .minor {
   font-size: 2rem;
   color: #823541;
   text-transform: capitalize;
+}
+
+$animate: all 0.2s ease-in-out;
+
+#examples {
+  .example {
+    .hover {
+      transition: $animate;
+      position: relative;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        width: 0px;
+        height: 0.12em;
+        margin: 5px 0 0;
+        transition: $animate;
+        transition-duration: 0.3s;
+        opacity: 0;
+        background-color: lighten(#823541, 30%);
+      }
+      &.hover-1 {
+        &:before,
+        &:after {
+          left: 0;
+        }
+      }
+      &.hover-2 {
+        &:before,
+        &:after {
+          right: 0;
+        }
+      }
+      &.hover-3 {
+        &:before {
+          left: 50%;
+        }
+        &:after {
+          right: 50%;
+        }
+      }
+      &.hover-4 {
+        &:before {
+          left: 0;
+        }
+        &:after {
+          right: 0;
+        }
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .hover {
+        &:before,
+        &:after {
+          width: 100%;
+          opacity: 1;
+        }
+        &.hover-3,
+        &.hover-4 {
+          &:before,
+          &:after {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
 }
 </style>
