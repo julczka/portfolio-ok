@@ -6,33 +6,99 @@
         <i v-else class="fas fa-bars fa-3x" />
       </button>
     </div>
-
-    <div class="menu" v-if="showNav">
-      <ul>
-        <router-link to="/Works"
-          ><li @click="showNav = !showNav">Works</li></router-link
-        >
-        <li class="minor">Video</li>
-        <li class="minor">Code</li>
-        <li class="minor">Design</li>
-        <router-link to="/about"
-          ><li @click="showNav = !showNav">About me</li></router-link
-        >
-        <li class="minor">Skills</li>
-        <li class="minor">Resume</li>
-        <li class="minor">Contact</li>
-      </ul>
-    </div>
+    <transition @enter="enter" @leave="leave" :css="false">
+      <div class="menu" v-if="showNav">
+        <transition-group appear @enter="listEnter('ul')" :css="false" tag="ul">
+          <ul v-for="(link, index) in navLinks" v-bind:key="index">
+            <li v-text="link.mainLink"></li>
+            <ul v-for="(subLink, indeks) in link.subLinks" v-bind:key="indeks">
+              <li class="minor">{{ subLink }}</li>
+            </ul>
+          </ul>
+        </transition-group>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
 export default {
   name: "Navigation",
   data() {
     return {
       showNav: false,
+      navLinks: [
+        {
+          mainLink: "Works",
+          subLinks: ["Video", "Design", "code"],
+        },
+        {
+          mainLink: "About me",
+          subLinks: {
+            link1: "skills",
+            link2: "resume",
+            link3: "contact",
+          },
+        },
+      ],
+
+      // "Works",
+
+      // "about me",
+      // "skills",
+      // "resume",
+      // "contact",
     };
+  },
+  methods: {
+    enter(el, done) {
+      gsap.fromTo(
+        el,
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.7,
+          ease: "back.inOut(3)",
+          onComplete: done,
+        }
+      );
+    },
+
+    listEnter(el, done) {
+      gsap.fromTo(
+        el,
+        { opacity: 0, x: 400 },
+        {
+          opacity: 1,
+          x: 1,
+          duration: 1,
+          ease: "back.inOut(3)",
+          onComplete: done,
+          stagger: 0.2,
+        }
+      );
+    },
+
+    // beforeLeave(el) {
+    //   el.style.opacity = 1;
+    //   el.style.transform = "scale(1,1)";
+    // },
+
+    leave(el, done) {
+      gsap.fromTo(
+        el,
+        { opacity: 1, scale: 1 },
+        {
+          opacity: 0,
+          scale: 0,
+          duration: 0.7,
+          ease: "back.inOut(3)",
+          onComplete: done,
+        }
+      );
+    },
   },
 };
 </script>
@@ -94,5 +160,6 @@ li {
 .minor {
   font-size: 2rem;
   color: #823541;
+  text-transform: capitalize;
 }
 </style>

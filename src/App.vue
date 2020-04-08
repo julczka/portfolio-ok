@@ -16,7 +16,7 @@
           cssTween();
         "
       >
-        <transition @before-enter="beforeEnter" @enter="enter" :css="false">
+        <transition @enter="enter" :css="false">
           <i v-if="darkMode" key="dark" class="fas fa-sun fa-2x"></i>
           <i v-else key="light" class="fas fa-moon fa-2x"></i>
         </transition>
@@ -61,7 +61,7 @@ export default {
         {
           opacity: 1,
           scale: 1,
-          duration: 0.2,
+          duration: 0.7,
           ease: "back.inOut(3)",
           onComplete: done,
         }
@@ -80,7 +80,7 @@ export default {
         {
           opacity: 0,
           scale: 0,
-          duration: 0.2,
+          duration: 0.7,
           ease: "back.inOut(3)",
           onComplete: done,
         }
