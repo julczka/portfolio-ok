@@ -16,8 +16,10 @@
           cssTween();
         "
       >
-        <i v-if="darkMode" class="fas fa-sun fa-2x"></i>
-        <i v-else class="fas fa-moon fa-2x"></i>
+        <transition @before-enter="beforeEnter" @enter="enter" :css="false">
+          <i v-if="darkMode" key="dark" class="fas fa-sun fa-2x"></i>
+          <i v-else key="light" class="fas fa-moon fa-2x"></i>
+        </transition>
       </div>
     </div>
     <Navigation />
@@ -45,6 +47,44 @@ export default {
   methods: {
     cssTween() {
       this.darkModeTween.reversed(!this.darkModeTween.reversed());
+    },
+
+    // beforeEnter(el) {
+    //   el.style.opacity = 0;
+    //   el.style.transform = "scale(0,0)";
+    // },
+
+    enter(el, done) {
+      gsap.fromTo(
+        el,
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.2,
+          ease: "back.inOut(3)",
+          onComplete: done,
+        }
+      );
+    },
+
+    // beforeLeave(el) {
+    //   el.style.opacity = 1;
+    //   el.style.transform = "scale(1,1)";
+    // },
+
+    leave(el, done) {
+      gsap.fromTo(
+        el,
+        { opacity: 1, scale: 1 },
+        {
+          opacity: 0,
+          scale: 0,
+          duration: 0.2,
+          ease: "back.inOut(3)",
+          onComplete: done,
+        }
+      );
     },
   },
 
@@ -154,19 +194,19 @@ h1 {
   color: var(--bg-secondary);
 }
 
-.dark {
-  // --text-primary: #df485c;
-  // --text-secondary: #d9d7d8;
-  // --bg-primary: #202326;
-  // --bg-secondary: #823541;
-  --background-image: url("../src/assets/background-dark.svg");
-}
+// .dark {
+//   // --text-primary: #df485c;
+//   // --text-secondary: #d9d7d8;
+//   // --bg-primary: #202326;
+//   // --bg-secondary: #823541;
+//   --background-image: url("../src/assets/background-dark.svg");
+// }
 
-.light {
-  // --text-primary: #202326;
-  // --text-secondary: #595859;
-  // --bg-primary: #d9d7d8;
-  // --bg-secondary: #c1c0c1;
-  --background-image: url("../src/assets/background.svg");
-}
+// .light {
+//   // --text-primary: #202326;
+//   // --text-secondary: #595859;
+//   // --bg-primary: #d9d7d8;
+//   // --bg-secondary: #c1c0c1;
+//   --background-image: url("../src/assets/background.svg");
+// }
 </style>
