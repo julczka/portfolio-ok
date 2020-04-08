@@ -10,11 +10,25 @@
       <div class="menu" v-if="showNav">
         <transition-group appear @enter="listEnter('ul')" :css="false" tag="ul">
           <ul v-for="(link, index) in navLinks" v-bind:key="index">
-            <li v-text="link.mainLink"></li>
+            <li>
+              <router-link :to="link.path">{{ link.mainLink }}</router-link>
+            </li>
             <ul v-for="(subLink, indeks) in link.subLinks" v-bind:key="indeks">
               <li class="minor">{{ subLink }}</li>
             </ul>
           </ul>
+          <!-- <li @click="showNav = !showNav">
+              <router-link to="/Works">Works</router-link>
+            </li>
+            <li class="minor">Video</li>
+            <li class="minor">Code</li>
+            <li class="minor">Design</li>
+            <li @click="showNav = !showNav">
+              <router-link to="/about">About me</router-link>
+            </li>
+            <li class="minor">Skills</li>
+            <li class="minor">Resume</li>
+            <li class="minor">Contact</li> -->
         </transition-group>
       </div>
     </transition>
@@ -31,10 +45,12 @@ export default {
       navLinks: [
         {
           mainLink: "Works",
+          path: "/Works",
           subLinks: ["Video", "Design", "code"],
         },
         {
           mainLink: "About me",
+          path: "/About",
           subLinks: {
             link1: "skills",
             link2: "resume",
@@ -155,6 +171,10 @@ li {
   color: #141418;
   text-align: center;
   font-size: 3rem;
+
+  a {
+    color: #141418;
+  }
 }
 
 .minor {
