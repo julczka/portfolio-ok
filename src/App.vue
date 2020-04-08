@@ -102,15 +102,15 @@ export default {
 
   mounted() {
     // var rule = CSSRulePlugin.getRule("#app:after");
-    this.darkModeTween.to("html", 1.4, {
-      "--bg-primary": "#202326",
-      ease: "power4.out",
-    });
-    // this.darkModeTween.to(rule, 0.7, { opacity: 0 }, "<");
-    // this.darkModeTween.set(rule, {
-    //   "background-image": "var(--background-image-dark)",
-    // });
-    // this.darkModeTween.to(rule, 0.7, { opacity: 1 });
+    this.darkModeTween.to(
+      "html",
+      1.4,
+      {
+        "--bg-primary": "#202326",
+        ease: "power4.out",
+      },
+      0
+    );
 
     this.darkModeTween.to(
       "html",
@@ -118,14 +118,24 @@ export default {
       { "--bg-secondary": "#823541", ease: "power4.out" },
       "<"
     );
-    this.darkModeTween.to("html", 0.5, {
-      "--text-primary": "#df485c",
-      ease: "power4.out",
-    });
-    this.darkModeTween.to("html", 0.5, {
-      "--text-secondary": "#d9d7d8",
-      ease: "power4.out",
-    });
+    this.darkModeTween.to(
+      "html",
+      0.5,
+      {
+        "--text-primary": "#df485c",
+        ease: "power4.out",
+      },
+      0
+    );
+    this.darkModeTween.to(
+      "html",
+      0.5,
+      {
+        "--text-secondary": "#d9d7d8",
+        ease: "power4.out",
+      },
+      0
+    );
     this.darkModeTween.reverse();
   },
 };
