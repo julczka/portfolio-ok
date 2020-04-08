@@ -21,8 +21,8 @@
           y2="1298.46"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#d9d7d8" />
-          <stop offset="1" stop-color="#595859" />
+          <stop class="color1" offset="0" stop-color="#d9d7d8" />
+          <stop class="color2" offset="1" stop-color="#595859" />
         </linearGradient>
         <linearGradient
           id="a76479e8-94e3-41fe-b879-8f8db571de14"
@@ -32,8 +32,8 @@
           y2="-266.59"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.09" stop-color="#d9d7d8" />
-          <stop offset="1" stop-color="#595859" />
+          <stop class="color1" offset="0.09" stop-color="#d9d7d8" />
+          <stop class="color2" offset="1" stop-color="#595859" />
         </linearGradient>
         <linearGradient
           id="b4a10aea-9592-4906-9979-e7c5e7d99ba8"
@@ -43,8 +43,8 @@
           y2="-1571.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#d9d7d8" />
-          <stop offset="0.91" stop-color="#595859" />
+          <stop class="color1" offset="0" stop-color="#d9d7d8" />
+          <stop class="color2" offset="0.91" stop-color="#595859" />
         </linearGradient>
         <linearGradient
           id="b762dba1-8438-4a2d-94de-925cc917c992"
@@ -54,8 +54,8 @@
           y2="-135.58"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.08" stop-color="#d9d7d8" />
-          <stop offset="1" stop-color="#595859" />
+          <stop class="color1" offset="0.08" stop-color="#d9d7d8" />
+          <stop class="color2" offset="1" stop-color="#595859" />
         </linearGradient>
       </defs>
       <g>
@@ -81,12 +81,43 @@
         />
       </g>
     </svg>
+    <button @click="animate" />
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
 export default {
   name: "Background.",
+  data() {
+    return {
+      backgroundTween: new gsap.timeline({ paused: true }),
+    };
+  },
+
+  methods: {
+    animate() {
+      console.log("fuck");
+      this.backgroundTween.reversed(!this.backgroundTween.reversed());
+    },
+  },
+  mounted() {
+    this.backgroundTween.to(".color1", {
+      attr: {
+        "stop-color": "#202326",
+      },
+      duration: 1.4,
+      ease: "power4.out",
+    });
+    this.backgroundTween.to(".color2", {
+      attr: {
+        "stop-color": "#df485c",
+      },
+      duration: 1.4,
+      ease: "power4.out",
+    });
+    this.backgroundTween.reverse();
+  },
 };
 </script>
 

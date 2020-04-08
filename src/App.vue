@@ -31,7 +31,7 @@
     <div class="view-wrapper">
       <router-view />
     </div>
-    <Background />
+    <Background ref="background" />
   </div>
 </template>
 
@@ -55,7 +55,10 @@ export default {
   },
   methods: {
     cssTween() {
+      var child = this.$refs.background;
+
       this.darkModeTween.reversed(!this.darkModeTween.reversed());
+      child.animate();
     },
 
     // beforeEnter(el) {
@@ -98,17 +101,31 @@ export default {
   },
 
   mounted() {
-    var rule = CSSRulePlugin.getRule("#app:after");
-    this.darkModeTween.to("html", 1.4, { "--bg-primary": "#202326" });
-    this.darkModeTween.to(rule, 0.7, { opacity: 0 }, "<");
-    this.darkModeTween.set(rule, {
-      "background-image": "var(--background-image-dark)",
+    // var rule = CSSRulePlugin.getRule("#app:after");
+    this.darkModeTween.to("html", 1.4, {
+      "--bg-primary": "#202326",
+      ease: "power4.out",
     });
-    this.darkModeTween.to(rule, 0.7, { opacity: 1 });
+    // this.darkModeTween.to(rule, 0.7, { opacity: 0 }, "<");
+    // this.darkModeTween.set(rule, {
+    //   "background-image": "var(--background-image-dark)",
+    // });
+    // this.darkModeTween.to(rule, 0.7, { opacity: 1 });
 
-    this.darkModeTween.to("html", 0.5, { "--bg-secondary": "#823541" }, "<");
-    this.darkModeTween.to("html", 0.5, { "--text-primary": "#df485c" });
-    this.darkModeTween.to("html", 0.5, { "--text-secondary": "#d9d7d8" });
+    this.darkModeTween.to(
+      "html",
+      0.5,
+      { "--bg-secondary": "#823541", ease: "power4.out" },
+      "<"
+    );
+    this.darkModeTween.to("html", 0.5, {
+      "--text-primary": "#df485c",
+      ease: "power4.out",
+    });
+    this.darkModeTween.to("html", 0.5, {
+      "--text-secondary": "#d9d7d8",
+      ease: "power4.out",
+    });
     this.darkModeTween.reverse();
   },
 };
