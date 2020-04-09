@@ -17,7 +17,7 @@
           cssTween();
         "
       >
-        <transition @enter="enter" :css="false">
+        <transition @enter="enter" @leave="leave" :css="false">
           <i
             v-if="darkMode"
             key="dark"
@@ -115,40 +115,27 @@ export default {
 
   mounted() {
     // var rule = CSSRulePlugin.getRule("#app:after");
-    this.darkModeTween.to(
-      "html",
-      1.4,
-      {
-        "--bg-primary": "#202326",
-        ease: "power4.out",
-      },
-      0
-    );
 
-    this.darkModeTween.to(
-      "html",
-      0.5,
-      { "--bg-secondary": "#823541", ease: "power4.out" },
-      "<"
-    );
-    this.darkModeTween.to(
-      "html",
-      0.5,
-      {
-        "--text-primary": "#df485c",
-        ease: "power4.out",
-      },
-      0.5
-    );
-    this.darkModeTween.to(
-      "html",
-      0.5,
-      {
-        "--text-secondary": "#d9d7d8",
-        ease: "power4.out",
-      },
-      0.5
-    );
+    this.darkModeTween.to("html", 0.5, {
+      "--text-primary": "#df485c",
+      ease: "power4.out",
+    });
+
+    this.darkModeTween.to("html", 1.4, {
+      "--bg-primary": "#202326",
+      ease: "power4.out",
+    });
+
+    this.darkModeTween.to("html", 0.5, {
+      "--bg-secondary": "#823541",
+      ease: "power4.out",
+    });
+
+    this.darkModeTween.to("html", 0.5, {
+      "--text-secondary": "#d9d7d8",
+      ease: "power4.out",
+    });
+
     this.darkModeTween.reverse();
     this.$nextTick(() => {
       this.height = this.$el.scrollHeight;
