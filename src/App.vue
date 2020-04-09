@@ -17,7 +17,7 @@
           cssTween();
         "
       >
-        <transition @enter="enter" @leave="leave" :css="false">
+        <transition @enter="enter" @leave="leave" mode="out-in" :css="false">
           <i
             v-if="darkMode"
             key="dark"
@@ -92,11 +92,6 @@ export default {
         }
       );
     },
-
-    // beforeLeave(el) {
-    //   el.style.opacity = 1;
-    //   el.style.transform = "scale(1,1)";
-    // },
 
     leave(el, done) {
       gsap.fromTo(
