@@ -9,7 +9,7 @@
     <transition @enter="enter" @leave="leave" :css="false">
       <div id="examples" class="menu" v-if="showNav">
         <transition-group appear @enter="listEnter('ul')" :css="false" tag="ul">
-          <ul v-for="link in navLinks" v-bind:key="link">
+          <ul v-for="(link, index) in navLinks" v-bind:key="index">
             <li @click="showNav = !showNav" class="example">
               <router-link :to="link.path" class="hover hover-3">{{
                 link.mainLink

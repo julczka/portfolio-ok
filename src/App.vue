@@ -31,14 +31,18 @@
     <div class="view-wrapper">
       <router-view />
     </div>
-    <Background ref="background" />
+    <Background
+      ref="background"
+      :height="height"
+      :key="height"
+      :dark="darkMode"
+    />
   </div>
 </template>
 
 <script>
 import gsap from "gsap";
-import { CSSRulePlugin } from "gsap/all";
-gsap.registerPlugin(CSSRulePlugin);
+
 import Navigation from "../src/components/Navigation";
 import Background from "../src/components/Background";
 
@@ -50,15 +54,24 @@ export default {
   data() {
     return {
       darkMode: false,
+      height: 0,
       darkModeTween: new gsap.timeline({ paused: true }),
     };
   },
-  methods: {
-    cssTween() {
-      var child = this.$refs.background;
 
+  watch: {
+    $route() {
+      console.log("route switched");
+      this.$nextTick(() => {
+        this.height = this.$el.scrollHeight;
+        console.log(this.$el.scrollHeight, this.height);
+      });
+    },
+  },
+
+  methods: {
+    cssTween: function() {
       this.darkModeTween.reversed(!this.darkModeTween.reversed());
-      child.animate();
     },
 
     // beforeEnter(el) {
@@ -125,7 +138,7 @@ export default {
         "--text-primary": "#df485c",
         ease: "power4.out",
       },
-      0
+      0.5
     );
     this.darkModeTween.to(
       "html",
@@ -134,9 +147,13 @@ export default {
         "--text-secondary": "#d9d7d8",
         ease: "power4.out",
       },
-      0
+      0.5
     );
     this.darkModeTween.reverse();
+    this.$nextTick(() => {
+      this.height = this.$el.scrollHeight;
+      console.log(this.$el.scrollHeight, this.height);
+    });
   },
 };
 </script>
@@ -150,12 +167,10 @@ body {
 
 html {
   box-sizing: border-box;
-  --text-primary: #202326;
-  --text-secondary: #595859;
-  --bg-primary: #d9d7d8;
-  --bg-secondary: #c1c0c1;
-  --background-image: url("../src/assets/background.svg");
-  --background-image-dark: url("../src/assets/background-dark.svg");
+  --text-primary: #202326; // "#df485c" - light pink
+  --text-secondary: #595859; // "#d9d7d8" - dark pink
+  --bg-primary: #d9d7d8; //"#202326"
+  --bg-secondary: #c1c0c1; // "#823541"
 }
 *,
 *:before,
@@ -180,23 +195,6 @@ html {
   z-index: 1;
   //width: calc(100vw - 0.25rem);
 }
-
-// #app:after {
-//   //content: "";
-//   opacity: 1;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-//   position: absolute;
-//   height: 100%;
-//   z-index: -1;
-//   background-image: var(--background-image);
-//   background-position: top center;
-//   background-repeat: no-repeat;
-//   background-size: 100vw;
-//   background-color: var(--bg-primary);
-// }
 
 #themeButton {
   display: flex;
@@ -316,20 +314,4 @@ h1 {
     transform: scale3d(1, 1, 1);
   }
 }
-
-// .dark {
-//   // --text-primary: #df485c;
-//   // --text-secondary: #d9d7d8;
-//   // --bg-primary: #202326;
-//   // --bg-secondary: #823541;
-//   --background-image: url("../src/assets/background-dark.svg");
-// }
-
-// .light {
-//   // --text-primary: #202326;
-//   // --text-secondary: #595859;
-//   // --bg-primary: #d9d7d8;
-//   // --bg-secondary: #c1c0c1;
-//   --background-image: url("../src/assets/background.svg");
-// }
 </style>
