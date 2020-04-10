@@ -347,6 +347,67 @@ export default {
       } else if (this.windowWidth / this.windowHeight === 1)
         console.log("component updated");
       else console.log("ratio > 1");
+
+      gsap.fromTo(
+        "#circle_central",
+        10,
+        { scale: 1 },
+        {
+          scale: 1.1,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "expo.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
+
+      gsap.fromTo(
+        "#ellipse_upper",
+        15,
+        { scale: 1 },
+        {
+          scale: 1.2,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "expo.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
+
+      gsap.fromTo(
+        "#circle_right",
+        10,
+        { scale: 1, x: 0 },
+        {
+          scale: 1.2,
+          x: 100,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "sine.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
+      gsap.fromTo(
+        "#circle_left",
+        6,
+        { scale: 1, x: 0 },
+        {
+          scale: 1.5,
+          x: -100,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "sine.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
     };
   },
 };

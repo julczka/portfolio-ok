@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <router-link to="/Works">
-      <div class="link">
+      <div class="link underline">
         <div class="img"></div>
-        <div class="name">
+        <div class="name hover hover-3">
           <h2>
             Works
           </h2>
@@ -11,9 +11,9 @@
       </div>
     </router-link>
     <router-link to="/About">
-      <div class="link">
+      <div class="link underline">
         <div class="img img_about"></div>
-        <div class="name">
+        <div class="name hover hover-3">
           <h2>
             About
           </h2>
@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/_line-hover.scss";
+
 .home {
   display: flex;
   align-items: center;
@@ -67,9 +69,14 @@ export default {
   background-image: url("../assets/mirka.png");
   background-size: cover;
   background-position: center;
+  transition: $animate;
 
   &_about {
     background-image: url("../assets/about-ME.jpg");
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
