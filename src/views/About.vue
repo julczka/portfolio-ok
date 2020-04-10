@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// @import "@/styles/_variables.scss";
+// $pink-light-hex: #f23558;
 .about {
   display: flex;
   align-items: flex-start;
@@ -49,6 +51,6 @@ export default {
   height: 6000px;
   width: 3px;
   opacity: 1;
-  background-color: blueviolet;
+  background-color: $pink-light-hex;
 }
 </style>

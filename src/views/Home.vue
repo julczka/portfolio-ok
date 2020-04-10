@@ -55,7 +55,7 @@ export default {
   flex-direction: column-reverse;
 }
 
-.link > .img {
+.img {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -7,16 +7,16 @@
       </button>
     </div>
     <transition @enter="enter" @leave="leave" :css="false">
-      <div id="examples" class="menu" v-if="showNav">
+      <div class="menu" v-if="showNav">
         <transition-group appear @enter="listEnter('ul')" :css="false" tag="ul">
           <ul v-for="(link, index) in navLinks" v-bind:key="index">
-            <li @click="showNav = !showNav" class="example">
+            <li @click="showNav = !showNav" class="underline">
               <router-link :to="link.path" class="hover hover-3">{{
                 link.mainLink
               }}</router-link>
             </li>
             <ul v-for="subLink in link.subLinks" v-bind:key="subLink">
-              <li class="minor example" @click="showNav = !showNav">
+              <li class="minor underline" @click="showNav = !showNav">
                 <router-link class="minor hover hover-3" to="/">{{
                   subLink
                 }}</router-link>
@@ -201,67 +201,65 @@ a {
 
 $animate: all 0.2s ease-in-out;
 
-#examples {
-  .example {
-    .hover {
+.underline {
+  .hover {
+    transition: $animate;
+    position: relative;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      width: 0px;
+      height: 0.12em;
+      margin: 5px 0 0;
       transition: $animate;
-      position: relative;
+      transition-duration: 0.3s;
+      opacity: 0;
+      background-color: lighten(#823541, 30%);
+    }
+    &.hover-1 {
       &:before,
       &:after {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        width: 0px;
-        height: 0.12em;
-        margin: 5px 0 0;
-        transition: $animate;
-        transition-duration: 0.3s;
-        opacity: 0;
-        background-color: lighten(#823541, 30%);
-      }
-      &.hover-1 {
-        &:before,
-        &:after {
-          left: 0;
-        }
-      }
-      &.hover-2 {
-        &:before,
-        &:after {
-          right: 0;
-        }
-      }
-      &.hover-3 {
-        &:before {
-          left: 50%;
-        }
-        &:after {
-          right: 50%;
-        }
-      }
-      &.hover-4 {
-        &:before {
-          left: 0;
-        }
-        &:after {
-          right: 0;
-        }
+        left: 0;
       }
     }
-    &:hover {
-      cursor: pointer;
-      .hover {
+    &.hover-2 {
+      &:before,
+      &:after {
+        right: 0;
+      }
+    }
+    &.hover-3 {
+      &:before {
+        left: 50%;
+      }
+      &:after {
+        right: 50%;
+      }
+    }
+    &.hover-4 {
+      &:before {
+        left: 0;
+      }
+      &:after {
+        right: 0;
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    .hover {
+      &:before,
+      &:after {
+        width: 100%;
+        opacity: 1;
+      }
+      &.hover-3,
+      &.hover-4 {
         &:before,
         &:after {
-          width: 100%;
-          opacity: 1;
-        }
-        &.hover-3,
-        &.hover-4 {
-          &:before,
-          &:after {
-            width: 50%;
-          }
+          width: 50%;
         }
       }
     }
