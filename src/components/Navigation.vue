@@ -126,6 +126,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .menu-btn {
   position: fixed;
   margin: 1.2rem;
@@ -180,7 +186,7 @@ li {
   padding: 0.2em;
   color: #141418;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.7rem;
 }
 
 a {
@@ -188,7 +194,7 @@ a {
 }
 
 .minor {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: #823541;
   text-transform: capitalize;
 }

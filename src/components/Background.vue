@@ -248,7 +248,7 @@ export default {
     },
 
     viewBoxHeightPortrait: function() {
-      return this.height + 2000;
+      return this.height + 1000;
     },
 
     viewBoxReactive: function() {
@@ -275,20 +275,20 @@ export default {
       // this.backgroundTween.reversed(!this.backgroundTween.reversed());
     },
 
-    changeLayout: function() {
-      this.layoutAnimation.to(
-        "#circle_left",
-        {
-          x: -300,
-          y: 400,
-          duration: 5,
-          ease: "power4.out",
-        },
-        0
-      );
-      this.layoutAnimation.play();
-      console.log("animate");
-    },
+    // changeLayout: function() {
+    //   this.layoutAnimation.to(
+    //     "#circle_left",
+    //     {
+    //       x: -300,
+    //       y: 400,
+    //       duration: 5,
+    //       ease: "power4.out",
+    //     },
+    //     0
+    //   );
+    //   this.layoutAnimation.play();
+    //   console.log("animate");
+    // },
     enter(el, done) {
       gsap.fromTo(
         el,
@@ -343,7 +343,6 @@ export default {
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
       if (this.windowWidth / this.windowHeight < 1) {
-        this.changeLayout();
         console.log("ratio < 1");
       } else if (this.windowWidth / this.windowHeight === 1)
         console.log("component updated");
@@ -360,6 +359,11 @@ export default {
   z-index: 0;
   width: 100vw;
   min-height: 100vh;
+}
+
+svg {
+  overflow: visible;
+  width: 100%;
 }
 
 //background

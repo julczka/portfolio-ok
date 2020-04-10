@@ -132,10 +132,16 @@ export default {
     });
 
     this.darkModeTween.reverse();
-    this.$nextTick(() => {
-      this.height = this.$el.scrollHeight;
-      console.log(this.$el.scrollHeight, this.height);
-    });
+    window.onresize = () => {
+      this.$nextTick(() => {
+        this.height = this.$el.scrollHeight;
+        console.log(this.$el.scrollHeight, this.height);
+      });
+    };
+    // this.$nextTick(() => {
+    //   this.height = this.$el.scrollHeight;
+    //   console.log(this.$el.scrollHeight, this.height);
+    // });
   },
 };
 </script>
@@ -160,7 +166,7 @@ html {
   box-sizing: inherit;
 }
 
-:root {
+body {
   font-size: 16px;
   font-family: reross-quadratic, sans-serif;
   letter-spacing: 1px;
@@ -175,6 +181,9 @@ html {
   min-height: 100vh;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   //width: calc(100vw - 0.25rem);
 }
 
@@ -182,7 +191,7 @@ html {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 1em;
+  padding: 1em 1em;
   position: fixed;
   right: 0;
 }
@@ -191,13 +200,12 @@ html {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 1em;
+  padding: 1em 1em;
   position: fixed;
   left: 0;
 }
 
 #nav {
-  padding: 1em;
   position: relative;
   z-index: 79;
   .fas:hover {
@@ -209,6 +217,12 @@ html {
 .view-wrapper {
   position: relative;
   z-index: 69;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 2em;
+  min-height: calc(100vh - 2em);
 }
 
 a {
@@ -294,6 +308,42 @@ h1 {
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  body {
+    font-size: 18px;
   }
 }
 </style>
