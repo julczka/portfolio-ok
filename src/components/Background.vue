@@ -1,6 +1,12 @@
 <template>
   <div id="bcg-wrapper">
-    <transition @enter="enter" @leave="leave" mode="out-in" :css="false">
+    <transition
+      @enter="enter"
+      @leave="leave"
+      @after-enter="animate()"
+      mode="out-in"
+      :css="false"
+    >
       <svg
         v-if="ratioIsPortrait"
         id="b5a88778-fe98-4a92-a77d-6e1219c31d2e"
@@ -9,8 +15,8 @@
         xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0"
         y="0"
-        :viewBox="viewBoxReactivePortrait"
-        :key="viewBoxReactivePortrait"
+        viewBox="0 0 760 1177"
+        :key="ratioIsPortrait"
       >
         <defs>
           <linearGradient
@@ -78,7 +84,7 @@
           />
         </defs>
         <g>
-          <g id="bbcd12a8-6efd-49c0-9055-5f3d7adc4edf" data-name="elipsa">
+          <g id="ellipse_upper" data-name="elipsa">
             <path
               d="M-6-2V186.77q21.32,1.92,43.08,3.63,49.74,3.9,101.71,6.64a483.11,483.11,0,0,1,476-.82q53.16-3,104-7.22,18.25-1.51,36.18-3.19V-2Z"
               transform="translate(6 2)"
@@ -90,7 +96,7 @@
               fill="url(#b4e3d593-8d1f-4141-9a36-648b0669002c)"
             />
           </g>
-          <g id="b536e9ee-dfb4-4a3e-89d6-0740c0daddc1" data-name="koloP">
+          <g id="circle_left" data-name="koloP">
             <path
               d="M520,560.36a151.73,151.73,0,0,0-54.71,249.57A151.69,151.69,0,1,0,520,560.36Z"
               transform="translate(6 2)"
@@ -108,13 +114,13 @@
             />
           </g>
           <path
-            id="a49a6c43-2f9d-46d7-ba4a-412e9ff4504b"
+            id="circle_central"
             data-name="koloC"
             d="M478.65,821.84a151.68,151.68,0,1,0-13.41-11.91A151.7,151.7,0,0,0,478.65,821.84Z"
             transform="translate(6 2)"
             fill="url(#f92cddc3-3f61-41d7-9e10-609884b8869e)"
           />
-          <g id="f6f225a0-e3d5-4e42-b11d-74406c860146" data-name="koloR">
+          <g id="circle_right" data-name="koloR">
             <path
               d="M421.82,991.68q-2.9-7.42-6.33-14.68H56.87Q39,961.1,22.8,943.5A226.29,226.29,0,0,0-6,999.64v114.72l175.63,184.73a227.72,227.72,0,0,0,196.84-59.27C435.6,1174.1,454.44,1075.37,421.82,991.68Z"
               transform="translate(6 2)"
@@ -137,8 +143,8 @@
         xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0"
         y="0"
-        :viewBox="viewBoxReactive"
-        :key="viewBoxReactive"
+        viewBox="0 0 1900 1000"
+        :key="ratioIsPortrait"
       >
         <defs>
           <linearGradient
@@ -270,25 +276,71 @@ export default {
 
   methods: {
     animate: function() {
-      console.log("bkg animate called");
+      this.layoutAnimation.fromTo(
+        "#circle_right",
+        10,
+        { scale: 1, x: 0 },
+        {
+          scale: 1.2,
+          x: 100,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "sine.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
+      this.layoutAnimation.fromTo(
+        "#circle_left",
+        6,
+        { scale: 1, x: 0 },
+        {
+          scale: 1.5,
+          x: -100,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "sine.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
 
-      // this.backgroundTween.reversed(!this.backgroundTween.reversed());
+      this.layoutAnimation.fromTo(
+        "#ellipse_upper",
+        15,
+        { scale: 1 },
+        {
+          scale: 1.2,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "expo.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
+
+      this.layoutAnimation.fromTo(
+        "#circle_central",
+        10,
+        { scale: 1 },
+        {
+          scale: 1.1,
+          repeat: -1,
+          repeatDelay: 0,
+          ease: "expo.inOut",
+          yoyo: true,
+          transformOrigin: "center center",
+          immediateRender: true,
+        }
+      );
+
+      this.layoutAnimation.play();
+      console.log("background animation");
     },
 
-    // changeLayout: function() {
-    //   this.layoutAnimation.to(
-    //     "#circle_left",
-    //     {
-    //       x: -300,
-    //       y: 400,
-    //       duration: 5,
-    //       ease: "power4.out",
-    //     },
-    //     0
-    //   );
-    //   this.layoutAnimation.play();
-    //   console.log("animate");
-    // },
     enter(el, done) {
       gsap.fromTo(
         el,
@@ -298,6 +350,7 @@ export default {
           scale: 1,
           duration: 0.7,
           ease: "back.inOut(3)",
+
           onComplete: done,
         }
       );
@@ -318,11 +371,6 @@ export default {
     },
   },
 
-  // beforeUpdate() {
-  //   if (this.dark) this.stopColorBase = "#202326";
-  //   if (this.dark) this.stopColorAccent = "#df485c";
-  // },
-
   watch: {
     dark: function(newVal, oldVal) {
       if (newVal === true || oldVal === false) {
@@ -339,6 +387,8 @@ export default {
   },
 
   mounted() {
+    this.animate();
+
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
@@ -347,67 +397,6 @@ export default {
       } else if (this.windowWidth / this.windowHeight === 1)
         console.log("component updated");
       else console.log("ratio > 1");
-
-      gsap.fromTo(
-        "#circle_central",
-        10,
-        { scale: 1 },
-        {
-          scale: 1.1,
-          repeat: -1,
-          repeatDelay: 0,
-          ease: "expo.inOut",
-          yoyo: true,
-          transformOrigin: "center center",
-          immediateRender: true,
-        }
-      );
-
-      gsap.fromTo(
-        "#ellipse_upper",
-        15,
-        { scale: 1 },
-        {
-          scale: 1.2,
-          repeat: -1,
-          repeatDelay: 0,
-          ease: "expo.inOut",
-          yoyo: true,
-          transformOrigin: "center center",
-          immediateRender: true,
-        }
-      );
-
-      gsap.fromTo(
-        "#circle_right",
-        10,
-        { scale: 1, x: 0 },
-        {
-          scale: 1.2,
-          x: 100,
-          repeat: -1,
-          repeatDelay: 0,
-          ease: "sine.inOut",
-          yoyo: true,
-          transformOrigin: "center center",
-          immediateRender: true,
-        }
-      );
-      gsap.fromTo(
-        "#circle_left",
-        6,
-        { scale: 1, x: 0 },
-        {
-          scale: 1.5,
-          x: -100,
-          repeat: -1,
-          repeatDelay: 0,
-          ease: "sine.inOut",
-          yoyo: true,
-          transformOrigin: "center center",
-          immediateRender: true,
-        }
-      );
     };
   },
 };

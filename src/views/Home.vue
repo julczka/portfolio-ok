@@ -10,6 +10,7 @@
         </div>
       </div>
     </router-link>
+
     <router-link to="/About">
       <div class="link underline">
         <div class="img img_about"></div>
@@ -24,10 +25,29 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import gsap from "gsap";
 
 export default {
   name: "Home",
+  components: {},
+
+  mounted() {
+    gsap.fromTo(
+      ".img",
+      10,
+      { scale: 1 },
+      {
+        scale: 1.1,
+        repeat: -1,
+        stagger: 0.5,
+        repeatDelay: 0,
+        ease: "power1.inOut",
+        yoyo: true,
+        transformOrigin: "center center",
+        immediateRender: true,
+      }
+    );
+  },
 };
 </script>
 
@@ -87,6 +107,7 @@ export default {
 
   h2 {
     margin: 0.2em;
+    color: var(--text-primary);
   }
 }
 

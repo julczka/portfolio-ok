@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <div class="menu-btn" @click="showNav = !showNav">
-      <button type="button">
+    <div class="menu-btn">
+      <button type="button" @click="showNav = !showNav">
         <i v-if="showNav" class="fas fa-times fa-3x"></i>
         <i v-else class="fas fa-bars fa-3x" />
       </button>
