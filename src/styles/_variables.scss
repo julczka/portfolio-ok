@@ -13,3 +13,9 @@ $grey-dark-rgba: rgba(89, 88, 89, 1);
 $black-rgba: rgba(31, 35, 38, 1);
 
 $animate: all 0.2s ease-in-out;
+
+$simplegradient: linear-gradient(
+  180deg,
+  var(--gradient-bg-rgba) 50%,
+  var(--gradient-accent-rgba) 100%
+);

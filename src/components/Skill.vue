@@ -1,0 +1,80 @@
+<template>
+  <div class="skill">
+    <div class="skill__wrapper">
+      <div class="skill__ico">
+        <i v-if="awesome" :class="[icon, 'fa-2x']"></i>
+        <div v-else><SimpleIcon :iconName="icon" /></div>
+      </div>
+      <div class="skill__name">{{ name }}</div>
+    </div>
+  </div>
+</template>
+
+<script>
+import SimpleIcon from "../components/icons/SimpleIcon";
+export default {
+  name: "Skill",
+  props: {
+    name: {
+      type: String
+    },
+    icon: {
+      type: String
+    },
+    awesome: {
+      type: Boolean
+    }
+  },
+
+  components: {
+    SimpleIcon
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+// svg {
+//   border: 4px solid yellow;
+//   position: relative;
+//   bottom: 100px;
+// }
+
+.skill {
+  //   border: 4px solid red;
+  border-radius: 200px;
+  width: 7.2rem;
+  background: $simplegradient;
+  box-sizing: content-box;
+  padding: 0 0.5em;
+
+  &__ico {
+    color: var(--text-primary);
+    // border: 4px solid blue;
+    font-size: 3rem;
+  }
+
+  &__wrapper {
+    // border: 4px solid pink;
+    @include flex-center;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+  }
+
+  &__name {
+    @include flex-center;
+    font-size: 1rem;
+    padding-bottom: 0.6em;
+    width: 100%;
+    color: var(--text-secondary);
+  }
+
+  //   .psd {
+  //     // fill: var(--text-primary);
+  //     background-image: url("../assets/skills_ico/iconfinder_logo_brand_brands_logos_adobe_photoshop_1907196.svg");
+  //     height: 1.8em;
+  //     width: 1.8em;
+  //   }
+}
+</style>

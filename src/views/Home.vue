@@ -44,10 +44,10 @@ export default {
         ease: "power1.inOut",
         yoyo: true,
         transformOrigin: "center center",
-        immediateRender: true,
+        immediateRender: true
       }
     );
-  },
+  }
 };
 </script>
 

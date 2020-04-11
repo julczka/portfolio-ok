@@ -2,14 +2,15 @@
   <div>
     <svg
       id="Layer_1"
+      class="cls-1"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="22"
-      viewBox="0 0 22 22"
+      viewBox="0 0 24 24"
+      @click="log"
     >
       <defs></defs>
-      <g id="Photoshop">
+      <path :d="iconPath" />
+      <!-- <g id="Photoshop">
         <g id="_Group_" data-name=" Group ">
           <rect
             id="_Rectangle_"
@@ -38,20 +39,44 @@
             />
           </g>
         </g>
-      </g>
+      </g> -->
     </svg>
   </div>
 </template>
-
 <script>
-export default {};
+export default {
+  props: {
+    iconName: {
+      type: String
+    }
+  },
+  data() {
+    return {
+      icons: require("simple-icons")
+    };
+  },
+
+  computed: {
+    iconPath: function() {
+      let iconObject = this.icons.get(this.iconName);
+      return iconObject.path;
+    }
+  },
+
+  methods: {
+    log() {
+      console.log(this.icons);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
+svg {
+  height: 70%;
+  width: 70%;
+}
 .cls-1 {
-  fill: none;
-  stroke: var(--text-primary);
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  fill: var(--text-primary);
 }
 </style>

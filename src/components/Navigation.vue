@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="nav-wrapper">
     <div class="menu-btn">
       <button type="button" @click="showNav = !showNav">
         <i v-if="showNav" class="fas fa-times fa-3x"></i>
@@ -52,7 +52,7 @@ export default {
         {
           mainLink: "Works",
           path: "/Works",
-          subLinks: ["Video", "Design", "code"],
+          subLinks: ["Video", "Design", "code"]
         },
         {
           mainLink: "About me",
@@ -60,10 +60,10 @@ export default {
           subLinks: {
             link1: "skills",
             link2: "resume",
-            link3: "contact",
-          },
-        },
-      ],
+            link3: "contact"
+          }
+        }
+      ]
 
       // "Works",
 
@@ -83,7 +83,7 @@ export default {
           y: 0,
           duration: 0.7,
           ease: "power4.out",
-          onComplete: done,
+          onComplete: done
         }
       );
     },
@@ -98,7 +98,7 @@ export default {
           duration: 0.5,
           ease: "back.inOut(3)",
           onComplete: done,
-          stagger: 0.1,
+          stagger: 0.1
         }
       );
     },
@@ -117,16 +117,16 @@ export default {
           y: 400,
           duration: 0.7,
           ease: "power4.in",
-          onComplete: done,
+          onComplete: done
         }
       );
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
+.nav-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
