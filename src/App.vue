@@ -7,7 +7,7 @@
 
     <div id="nav">
       <div id="homeButton">
-        <router-link to="/"><i class="fas fa-home fa-2x"></i></router-link>
+        <router-link to="/"><i class="fas fa-home"></i></router-link>
       </div>
 
       <div
@@ -23,7 +23,7 @@
             key="dark"
             class="fas fa-sun fa-2x jello-horizontal"
           ></i>
-          <i v-else key="light" class="fas fa-moon fa-2x"></i>
+          <i v-else key="light" class="fas fa-moon "></i>
         </transition>
       </div>
     </div>
@@ -169,8 +169,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://use.typekit.net/tgt3ban.css");
-
 html,
 body {
   margin: 0px !important;
@@ -194,7 +192,7 @@ html {
 
 body {
   font-size: 16px;
-  font-family: reross-quadratic, sans-serif;
+  font-family: reross, sans-serif;
 
   font-weight: 400;
 
@@ -238,6 +236,7 @@ body {
 #nav {
   position: relative;
   z-index: 79;
+  font-size: 2rem;
   .fas:hover {
     -webkit-animation: jello-horizontal 0.9s both;
     animation: jello-horizontal 0.9s both;
@@ -345,37 +344,37 @@ h1 {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media only screen and (max-width: 375px) {
   body {
     font-size: 8px;
   }
 }
 
-@media screen and (max-width: 576px) {
+@media only screen and (min-width: 576px) {
   body {
     font-size: 10px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   body {
     font-size: 12px;
   }
 }
 
-@media screen and (max-width: 992px) {
+@media only screen and (min-width: 992px) {
   body {
     font-size: 14px;
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   body {
     font-size: 16px;
   }
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (min-width: 1440px) {
   body {
     font-size: 18px;
   }
