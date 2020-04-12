@@ -10,22 +10,29 @@
         {{ entry.toUpperCase() }}
       </button>
     </div>
-    <div class="parent">
+
+    <transition-group
+      @enter="skillEnter"
+      @leave="skillLeave"
+      :css="false"
+      tag="div"
+      class="parent"
+    >
       <div
         v-for="skill in filteredSkills"
         :key="skill.id"
-        :class="[`div${skill.id}`]"
+        :class="[`div${skill.id}`, `${skill.category}`, `all`]"
       >
         <Skill :name="skill.name" :icon="skill.icon" :awesome="skill.awesome" />
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
 <script>
 import Skill from "../components/Skill.vue";
 import skillsData from "../data/skills.json";
-
+import gsap from "gsap";
 export default {
   nane: "SkillsGrid",
   components: {
@@ -35,8 +42,8 @@ export default {
     return {
       skills: skillsData,
       fkey: "category",
-      filterList: ["code", "design", "film", "All"],
-      filter: "All"
+      filterList: ["code", "design", "film", "all"],
+      filter: "all"
     };
   },
   computed: {
@@ -44,7 +51,7 @@ export default {
       var vm = this;
       var category = vm.filter;
 
-      if (category === "All") {
+      if (category === "all") {
         return vm.skills;
       } else {
         return vm.skills.filter(function(skill) {
@@ -57,7 +64,39 @@ export default {
     setFilter: function(entry) {
       this.filter = entry;
       console.log(entry, this.filter);
+    },
+    skillEnter(el, done) {
+      gsap.fromTo(
+        el,
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "back.inOut(3)",
+          onComplete: done,
+          stagger: 0.1
+        }
+      );
+    },
+
+    skillLeave(el, done) {
+      gsap.fromTo(
+        el,
+        { opacity: 1, scale: 1 },
+        {
+          opacity: 0,
+          scale: 0,
+          duration: 1,
+          ease: "back.inOut(3)",
+          onComplete: done,
+          stagger: 0.1
+        }
+      );
     }
+    // skillSetParameters(el) {
+    //   gsap.set(el, { opacity: 0, scale: 0 });
+    // }
   }
 };
 </script>
@@ -95,6 +134,7 @@ button {
   width: 60%;
   justify-content: space-around;
   margin: 2em 1em;
+  flex-wrap: wrap;
 }
 .parent {
   width: 60%;

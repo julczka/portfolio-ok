@@ -259,7 +259,7 @@ a {
   color: var(--text-primary);
 
   &.router-link-exact-active {
-    color: var(--text-primary);
+    color: $grey-light-hex;
   }
 }
 
