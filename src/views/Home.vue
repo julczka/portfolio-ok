@@ -16,7 +16,7 @@
         <div class="img img_about"></div>
         <div class="name hover hover-3">
           <h2>
-            About
+            About me
           </h2>
         </div>
       </div>
@@ -93,10 +93,6 @@ export default {
 
   &_about {
     background-image: url("../assets/about-ME.jpg");
-  }
-
-  &:hover {
-    transform: scale(1.1);
   }
 }
 

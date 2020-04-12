@@ -79,12 +79,12 @@ export default {
     enter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, scale: 0 },
+        { opacity: 0, scale: 1.5 },
         {
           opacity: 1,
           scale: 1,
-          duration: 0.7,
-          ease: "back.inOut(3)",
+          duration: 0.4,
+          ease: "power(3)",
           onComplete: done
         }
       );
@@ -96,9 +96,9 @@ export default {
         { opacity: 1, scale: 1 },
         {
           opacity: 0,
-          scale: 0,
-          duration: 0.7,
-          ease: "back.inOut(3)",
+          scale: 0.5,
+          duration: 0.4,
+          ease: "power(3)",
           onComplete: done
         }
       );
@@ -169,6 +169,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://use.typekit.net/tgt3ban.css");
+
 html,
 body {
   margin: 0px !important;
@@ -193,6 +195,10 @@ html {
 body {
   font-size: 16px;
   font-family: reross-quadratic, sans-serif;
+
+  font-weight: 400;
+
+  font-style: normal;
   letter-spacing: 1px;
 }
 

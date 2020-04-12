@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       videoOptions: {
-        autoplay: true,
+        autoplay: false,
         controls: true,
         fluid: true,
         responsive: true,
@@ -46,15 +46,6 @@ export default {
           }
         ]
       }
-      // videoId: "7AXsVXHfir0",
-      // playerVars: {
-      //   autoplay: 0,
-      //   showinfo: 0,
-      //   modestbranding: 1,
-      //   controls: 1,
-      //   rel: 0,
-      //   loop: 1
-      // }
     };
   },
 
@@ -71,6 +62,15 @@ export default {
 <style lang="scss" scoped>
 // @import "@/styles/_video.scss";
 // $pink-light-hex: #f23558;
+.about {
+  width: 100%;
+
+  @include flex-center();
+  flex-direction: column;
+}
+.youtube {
+  width: 50%;
+}
 .fill {
   height: 200px;
 }
