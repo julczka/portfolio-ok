@@ -18,11 +18,7 @@
         "
       >
         <transition @enter="enter" @leave="leave" mode="out-in" :css="false">
-          <i
-            v-if="darkMode"
-            key="dark"
-            class="fas fa-sun fa-2x jello-horizontal"
-          ></i>
+          <i v-if="darkMode" key="dark" class="fas fa-sun jello-horizontal"></i>
           <i v-else key="light" class="fas fa-moon "></i>
         </transition>
       </div>
@@ -192,7 +188,7 @@ html {
 
 body {
   font-size: 16px;
-  font-family: reross, sans-serif;
+  font-family: reross-quadratic, sans-serif;
 
   font-weight: 400;
 
@@ -236,10 +232,14 @@ body {
 #nav {
   position: relative;
   z-index: 79;
-  font-size: 2rem;
+
   .fas:hover {
     -webkit-animation: jello-horizontal 0.9s both;
     animation: jello-horizontal 0.9s both;
+  }
+
+  i {
+    font-size: 3rem;
   }
 }
 
@@ -268,7 +268,41 @@ i {
 }
 
 h1 {
+  font-size: 3rem;
   color: var(--text-primary);
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2 {
+  font-size: 3rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  font-style: normal;
+}
+h3 {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  font-style: normal;
+}
+h4 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  font-style: normal;
+}
+h5 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  font-style: normal;
+}
+h6 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* ----------------------------------------------
@@ -348,9 +382,15 @@ h1 {
   body {
     font-size: 8px;
   }
+
+  #nav {
+    i {
+      font-size: 2rem;
+    }
+  }
 }
 
-@media only screen and (min-width: 576px) {
+@media only screen and (max-width: 576px) {
   body {
     font-size: 10px;
   }

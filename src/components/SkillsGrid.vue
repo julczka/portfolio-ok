@@ -1,8 +1,21 @@
 <template>
   <div class="skill-grid">
-    <h1>What I can do for you</h1>
+    <div class="button-wrapper">
+      <h6>Show category:</h6>
+      <button
+        v-for="(entry, index) in filterList"
+        :key="index"
+        @click="setFilter(entry)"
+      >
+        {{ entry.toUpperCase() }}
+      </button>
+    </div>
     <div class="parent">
-      <div v-for="skill in skills" :key="skill.id" :class="[`div${skill.id}`]">
+      <div
+        v-for="skill in filteredSkills"
+        :key="skill.id"
+        :class="[`div${skill.id}`]"
+      >
         <Skill :name="skill.name" :icon="skill.icon" :awesome="skill.awesome" />
       </div>
     </div>
@@ -20,8 +33,31 @@ export default {
   },
   data() {
     return {
-      skills: skillsData
+      skills: skillsData,
+      fkey: "category",
+      filterList: ["code", "design", "film", "All"],
+      filter: "All"
     };
+  },
+  computed: {
+    filteredSkills: function() {
+      var vm = this;
+      var category = vm.filter;
+
+      if (category === "All") {
+        return vm.skills;
+      } else {
+        return vm.skills.filter(function(skill) {
+          return skill.category === category;
+        });
+      }
+    }
+  },
+  methods: {
+    setFilter: function(entry) {
+      this.filter = entry;
+      console.log(entry, this.filter);
+    }
   }
 };
 </script>
@@ -31,18 +67,41 @@ h1 {
   color: var(--bg-secondary);
 }
 
-.skill-grid {
-  width: 90%;
-  @include flex-center();
-  flex-direction: column;
+button {
+  border: 1.5px solid var(--bg-secondary);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-size: 1rem;
+  padding: 0.5em;
+  min-width: 6em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: futura-pt, sans-serif;
+
+  font-weight: 500;
+
+  font-style: normal;
+  font-size: 1rem;
 }
 
+.skill-grid {
+  width: 100%;
+  @include flex-center();
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button-wrapper {
+  @include flex-center();
+  width: 60%;
+  justify-content: space-around;
+  margin: 2em 1em;
+}
 .parent {
   width: 60%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
   justify-items: center;
   align-items: end;
   grid-auto-flow: row;

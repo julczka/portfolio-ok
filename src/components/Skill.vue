@@ -64,6 +64,11 @@ export default {
 
   &__name {
     @include flex-center;
+    font-family: futura-pt, sans-serif;
+
+    font-weight: 500;
+
+    font-style: normal;
     font-size: 1rem;
     padding-bottom: 0.6em;
     width: 100%;
