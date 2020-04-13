@@ -5,14 +5,17 @@
       <button
         v-for="(entry, index) in filterList"
         :key="index"
-        @click="setFilter(entry)"
+        @click="
+          setFilter(entry);
+          setIndex(index);
+        "
       >
         {{ entry.toUpperCase() }}
       </button>
     </div>
 
     <transition-group
-      @enter="skillEnter"
+      @enter="skillEnter(`.${filter}`)"
       @leave="skillLeave"
       :css="false"
       tag="div"
@@ -21,7 +24,11 @@
       <div
         v-for="skill in filteredSkills"
         :key="skill.id"
-        :class="[`div${skill.id}`, `${skill.category}`, `all`]"
+        :class="[
+          `div${filteredSkills.indexOf(skill)}`,
+          `${skill.category}`,
+          `all`
+        ]"
       >
         <Skill :name="skill.name" :icon="skill.icon" :awesome="skill.awesome" />
       </div>
@@ -43,7 +50,8 @@ export default {
       skills: skillsData,
       fkey: "category",
       filterList: ["code", "design", "film", "all"],
-      filter: "all"
+      filter: "all",
+      filterIndex: 0
     };
   },
   computed: {
@@ -59,12 +67,25 @@ export default {
         });
       }
     }
+    // filtersNegative: function() {
+    //   const filters = this.filterList;
+    //   let i = this.filterIndex;
+    //   let filtersNegative = filters.splice(i, 1);
+
+    //   return filtersNegative.map(item => `.${item}`);
+    // }
   },
   methods: {
     setFilter: function(entry) {
       this.filter = entry;
       console.log(entry, this.filter);
     },
+
+    setIndex: function(index) {
+      this.filterIndex = index;
+      console.log(index, this.filterIndex, this.filtersNegative);
+    },
+
     skillEnter(el, done) {
       gsap.fromTo(
         el,
@@ -94,9 +115,6 @@ export default {
         }
       );
     }
-    // skillSetParameters(el) {
-    //   gsap.set(el, { opacity: 0, scale: 0 });
-    // }
   }
 };
 </script>
@@ -139,7 +157,9 @@ button {
 .parent {
   width: 60%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  // grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   grid-column-gap: 2em;
   grid-row-gap: 2em;
   justify-items: center;
@@ -147,40 +167,52 @@ button {
   grid-auto-flow: row;
 }
 
-// .div1 {
-//   grid-area: 1 / 1 / 2 / 2;
-// }
-// .div2 {
-//   grid-area: 1 / 2 / 2 / 3;
-// }
-// .div3 {
-//   grid-area: 1 / 3 / 2 / 4;
-// }
-// .div4 {
-//   grid-area: 1 / 4 / 2 / 5;
-// }
-// .div5 {
-//   grid-area: 2 / 1 / 3 / 2;
-// }
-// .div6 {
-//   grid-area: 2 / 2 / 3 / 3;
-// }
-// .div7 {
-//   grid-area: 2 / 3 / 3 / 4;
-// }
-// .div8 {
-//   grid-area: 2 / 4 / 3 / 5;
-// }
-// .div9 {
-//   grid-area: 3 / 1 / 4 / 2;
-// }
-// .div10 {
-//   grid-area: 3 / 2 / 4 / 3;
-// }
-// .div11 {
-//   grid-area: 3 / 3 / 4 / 4;
-// }
-// .div12 {
-//   grid-area: 3 / 4 / 4 / 5;
-// }
+.div0 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.div1 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.div2 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.div3 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.div4 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.div5 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.div6 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.div7 {
+  grid-area: 2 / 4 / 3 / 5;
+}
+.div8 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.div9 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.div10 {
+  grid-area: 3 / 3 / 4 / 4;
+}
+.div11 {
+  grid-area: 3 / 4 / 4 / 5;
+}
+.div12 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.div13 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+.div14 {
+  grid-area: 4 / 3 / 5 / 4;
+}
+.div15 {
+  grid-area: 4 / 4 / 5 / 5;
+}
 </style>
