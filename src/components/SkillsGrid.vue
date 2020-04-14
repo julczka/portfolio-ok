@@ -66,19 +66,18 @@ export default {
           return skill.category === category;
         });
       }
+    },
+    filtersNegative: function() {
+      let filters = [...this.filterList];
+      let i = this.filterIndex;
+      filters.splice(i, 1);
+      return filters.map(item => `.${item}`);
     }
-    // filtersNegative: function() {
-    //   const filters = this.filterList;
-    //   let i = this.filterIndex;
-    //   let filtersNegative = filters.splice(i, 1);
-
-    //   return filtersNegative.map(item => `.${item}`);
-    // }
   },
   methods: {
     setFilter: function(entry) {
       this.filter = entry;
-      console.log(entry, this.filter);
+      // console.log(entry, this.filter);
     },
 
     setIndex: function(index) {
@@ -87,7 +86,9 @@ export default {
     },
 
     skillEnter(el, done) {
-      gsap.fromTo(
+      let tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
         el,
         { opacity: 0, scale: 0 },
         {
@@ -99,6 +100,8 @@ export default {
           stagger: 0.1
         }
       );
+      // tl.to(`.${this.filter}`, { opacity: 1 });
+      tl.play();
     },
 
     skillLeave(el, done) {
@@ -114,6 +117,7 @@ export default {
           stagger: 0.1
         }
       );
+      // gsap.to(`${this.filtersNegative}`, { opacity: 1 });
     }
   }
 };
@@ -157,9 +161,9 @@ button {
 .parent {
   width: 60%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  // grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  // grid-template-columns: repeat(4, 1fr);
+  // grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   grid-column-gap: 2em;
   grid-row-gap: 2em;
   justify-items: center;
