@@ -1,7 +1,7 @@
 <template>
   <div class="skill-grid">
     <div class="button-wrapper">
-      <h6>Show category:</h6>
+      <h5>Show category:</h5>
       <button
         v-for="(entry, index) in filterList"
         :key="index"
@@ -128,20 +128,8 @@ h1 {
   color: var(--bg-secondary);
 }
 
-button {
-  border: 1.5px solid var(--bg-secondary);
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  font-size: 1rem;
-  padding: 0.5em;
-  min-width: 6em;
-  font-family: Arial, Helvetica, sans-serif;
+h3 {
   font-family: futura-pt, sans-serif;
-
-  font-weight: 500;
-
-  font-style: normal;
-  font-size: 1rem;
 }
 
 .skill-grid {
@@ -154,16 +142,16 @@ button {
 .button-wrapper {
   @include flex-center();
   width: 60%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 2em 1em;
   flex-wrap: wrap;
 }
 .parent {
   width: 60%;
   display: grid;
-  // grid-template-columns: repeat(4, 1fr);
-  // grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  // grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   grid-column-gap: 2em;
   grid-row-gap: 2em;
   justify-items: center;
@@ -218,5 +206,64 @@ button {
 }
 .div15 {
   grid-area: 4 / 4 / 5 / 5;
+}
+
+@media screen and (max-width: 576px) and (max-aspect-ratio: 1/1) {
+  .parent {
+    width: 75%;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    // grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  }
+
+  .div0 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .div1 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .div2 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .div3 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .div4 {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .div5 {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+  .div6 {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .div7 {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+  .div8 {
+    grid-area: 3 / 3 / 4 / 4;
+  }
+  .div9 {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  .div10 {
+    grid-area: 4 / 2 / 5 / 3;
+  }
+  .div11 {
+    grid-area: 4 / 3 / 5 / 4;
+  }
+  .div12 {
+    grid-area: 5 / 1 / 6 / 2;
+  }
+  .div13 {
+    grid-area: 5 / 2 / 6 / 3;
+  }
+  .div14 {
+    grid-area: 5 / 3 / 6 / 4;
+  }
+  .div15 {
+    grid-area: 6 / 1 / 7 / 2;
+  }
 }
 </style>

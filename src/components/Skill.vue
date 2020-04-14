@@ -33,19 +33,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// svg {
-//   border: 4px solid yellow;
-//   position: relative;
-//   bottom: 100px;
-// }
-
 .skill {
   //   border: 4px solid red;
   border-radius: 200px;
-  width: 7.2rem;
+  width: 8rem;
   background: $simplegradient;
   box-sizing: content-box;
-  padding: 0 0.5em;
 
   &__ico {
     color: var(--text-primary);
@@ -66,12 +59,12 @@ export default {
     @include flex-center;
     font-family: futura-pt, sans-serif;
 
-    font-weight: 500;
+    font-weight: 200;
 
     font-style: normal;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding-bottom: 0.6em;
-    width: 100%;
+    width: 130%;
     color: var(--text-secondary);
   }
 

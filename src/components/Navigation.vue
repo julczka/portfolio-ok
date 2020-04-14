@@ -1,22 +1,32 @@
 <template>
   <div class="nav-wrapper">
-    <div class="menu-btn">
+    <div class="nav-menu-btn">
       <button type="button" @click="showNav = !showNav">
-        <i v-if="showNav" class="fas fa-times fa-3x"></i>
-        <i v-else class="fas fa-bars fa-3x" />
+        <i v-if="showNav" class="fas fa-times"></i>
+        <i v-else class="fas fa-bars" />
       </button>
     </div>
     <transition @enter="enter" @leave="leave" :css="false">
       <div class="menu" v-if="showNav">
-        <transition-group appear @enter="listEnter('ul')" :css="false" tag="ul">
+        <transition-group
+          appear
+          @enter="listEnter('ul')"
+          :css="false"
+          tag="ul"
+          class="nav-container"
+        >
           <ul v-for="(link, index) in navLinks" v-bind:key="index">
             <li @click="showNav = !showNav" class="underline">
               <router-link :to="link.path" class="hover hover-3">{{
                 link.mainLink
               }}</router-link>
             </li>
-            <ul v-for="subLink in link.subLinks" v-bind:key="subLink">
-              <li class="minor underline" @click="showNav = !showNav">
+            <ul
+              v-for="subLink in link.subLinks"
+              v-bind:key="subLink"
+              class="minor"
+            >
+              <li class="underline" @click="showNav = !showNav">
                 <router-link class="minor hover hover-3" to="/">{{
                   subLink
                 }}</router-link>
@@ -77,10 +87,10 @@ export default {
     enter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, y: 300 },
+        { opacity: 0, y: "300px" },
         {
           opacity: 1,
-          y: 0,
+          y: "0px",
           duration: 0.7,
           ease: "power4.out",
           onComplete: done
@@ -91,10 +101,10 @@ export default {
     listEnter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, x: 200 },
+        { opacity: 0, x: "200px" },
         {
           opacity: 1,
-          x: 1,
+          x: "0px",
           duration: 0.5,
           ease: "back.inOut(3)",
           onComplete: done,
@@ -111,10 +121,10 @@ export default {
     leave(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 1, y: 0 },
+        { opacity: 1, y: "0px" },
         {
           opacity: 0,
-          y: 400,
+          y: "400px",
           duration: 0.7,
           ease: "power4.in",
           onComplete: done
@@ -132,9 +142,9 @@ export default {
   justify-content: center;
 }
 
-.menu-btn {
+.nav-menu-btn {
   position: fixed;
-  margin: 1.2rem;
+  margin: 1.2em 0;
   bottom: 0;
   left: 0;
   right: 0;
@@ -152,7 +162,8 @@ button:focus {
 
 i {
   outline: none;
-  padding: 1.5rem;
+  padding: 0.5em;
+  font-size: 3rem;
   color: #202326;
   background: #df485c;
   border-radius: 50%;
@@ -175,9 +186,17 @@ i {
   width: 100%;
 }
 
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 80%;
+}
+
 ul {
   list-style: none;
-  margin: 0;
+  margin: 0.2em 0;
   padding: 0;
   transform: translateY(-10%);
 }
@@ -186,7 +205,7 @@ li {
   padding: 0.2em;
   color: #141418;
   text-align: center;
-  font-size: 2.7rem;
+  font-size: 3rem;
 }
 
 a {
@@ -194,10 +213,65 @@ a {
 }
 
 .minor {
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   color: #823541;
   text-transform: capitalize;
 }
 
 @import "../styles/_line-hover.scss";
+
+@media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  .nav-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  i {
+    outline: none;
+    padding: 0.5em;
+    font-size: 5rem;
+  }
+
+  li {
+    font-size: 3.5rem;
+  }
+
+  .minor {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 576px) {
+  i {
+    outline: none;
+    padding: 0.5em;
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  li {
+    font-size: 2rem;
+  }
+
+  .minor {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  // li {
+  //   font-size: 3rem;
+  // }
+
+  // .minor {
+  //   font-size: 2.5rem;
+  // }
+}
 </style>

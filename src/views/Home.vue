@@ -77,11 +77,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 200px;
   filter: grayscale(1);
-  width: 11rem;
-  height: 11rem;
+  width: 6.5em;
+  height: 6.5em;
   background-image: url("../assets/mirka.png");
   background-size: cover;
   background-position: center;
@@ -106,9 +105,6 @@ export default {
 //     font-size: 1.8rem;
 //   }
 // }
-
-@media screen and (min-width: 576px) {
-}
 
 @media screen and (max-aspect-ratio: 1/1) {
   .home {
