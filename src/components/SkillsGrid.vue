@@ -1,7 +1,6 @@
 <template>
   <div class="skill-grid">
     <div class="button-wrapper">
-      <h5>Show category:</h5>
       <button
         class="button"
         v-for="(entry, index) in filterList"
@@ -143,17 +142,18 @@ h3 {
 
 .button-wrapper {
   @include flex-center();
-  width: 60%;
-  justify-content: space-evenly;
+  width: 80%;
+  justify-content: center;
   margin: 2em 1em;
   flex-wrap: wrap;
 }
 .parent {
-  width: 50%;
+  width: 70%;
+
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  align-content: center;
+  align-content: flex-start;
   justify-content: center;
 }
 
@@ -171,11 +171,11 @@ h3 {
   animation: scale-in-center 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
-.skill-list-leave {
-  -webkit-animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    both;
-  animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-}
+// .skill-list-leave {
+//   -webkit-animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+//     both;
+//   animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+// }
 
 .skill-list-leave-to
 /* .list-complete-leave-active below version 2.1.8 */ {
@@ -252,6 +252,10 @@ h3 {
 @media screen and (max-width: 576px) and (max-aspect-ratio: 1/1) {
   .parent {
     width: 75%;
+  }
+
+  .button-wrapper {
+    width: 90%;
   }
 }
 </style>

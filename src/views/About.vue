@@ -37,13 +37,12 @@
         <button class="button">Download CV</button>
       </div>
     </div>
-    <div class="fill"></div>
-    <div class="fill"></div>
+
     <h2>What I can do for you</h2>
     <SkillsGrid id="skills" />
-    <div class="fill"></div>
+
     <h2 id="resume">What I was doing untill now</h2>
-    <Timeline />
+    <TimelineDetection />
     <div class="fill"></div>
   </div>
 </template>
@@ -51,12 +50,13 @@
 <script>
 import SkillsGrid from "../components/SkillsGrid";
 import VideoPlayer from "../components/VideoPlayer";
-import Timeline from "../components/Timeline";
+import TimelineDetection from "../components/TimelineDetection";
+
 export default {
   components: {
     SkillsGrid: SkillsGrid,
     VideoPlayer,
-    Timeline
+    TimelineDetection
   },
   data() {
     return {
@@ -112,6 +112,7 @@ export default {
   }
   h2 {
     color: var(--bg-secondary);
+    margin: 1em 1.6em;
   }
 }
 

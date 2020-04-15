@@ -1,9 +1,13 @@
 <template>
   <div class="swiper-container">
     <div class="swiper-control">
-      <i class="fas fa-arrow-left prev-slide"></i>
+      <button class="swiper-button">
+        <i class="fas fa-arrow-up prev-slide"></i>
+      </button>
 
-      <i class="fas fa-arrow-right next-slide"></i>
+      <button class="swiper-button">
+        <i class="fas fa-arrow-down next-slide"></i>
+      </button>
     </div>
     <div class="swiper-wrapper timeline">
       <div class="swiper-slide" v-for="(item, index) in steps" :key="index">
@@ -19,7 +23,7 @@
       </div>
     </div>
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
   </div>
 </template>
 
@@ -27,7 +31,7 @@
 import Swiper from "swiper";
 import resume from "../data/resume.json";
 export default {
-  name: "timeline",
+  name: "timeline-vertical",
   data() {
     return {
       steps: resume
@@ -37,13 +41,17 @@ export default {
   mounted() {
     new Swiper(".swiper-container", {
       //pagination: '.swiper-pagination',
-      slidesPerView: 2,
-      freeMode: true,
+      slidesPerView: 1,
+      // freeMode: true,
       grabCursor: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
+      direction: "vertical",
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+      //   renderBullet: function(index, className) {
+      //     return '<span class="' + className + '">' + (index + 1) + "</span>";
+      //   }
+      // },
       navigation: {
         nextEl: ".next-slide",
         prevEl: ".prev-slide"
@@ -56,70 +64,50 @@ export default {
 <style lang="scss" scoped>
 @import url("../styles/_swiper.scss");
 
-.swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  text-align: center;
-  line-height: 60px;
-  font-size: 0.8rem;
-  font-family: futura-pt, sans-serif;
-  font-weight: 200;
-  color: var(--text-primary);
-  opacity: 1;
-  background: var(--bg-secondary);
-}
-.swiper-pagination-bullet-active {
-  color: var(--text-primary);
-  background: var(--text-primary);
-  border: 1px solid var(--text-primary);
+.swiper-button {
+  background-color: var(--bg-primary);
+  font-size: 2rem;
+  padding: 0.8em;
+  border: 1px solig var(--bg-secondary);
+  border-radius: 50px;
 }
 
-.swiper-container-horizontal
-  > .swiper-pagination-bullets
-  .swiper-pagination-bullet {
-  margin: 0 0.4em;
-}
+// .timeline {
+//   margin: 50px 0;
+//   list-style-type: none;
+//   display: flex;
+//   padding: 0;
+//   text-align: center;
+// }
 
-.swiper-pagination {
-  position: relative;
-  margin-top: 2rem;
-}
-
-.timeline {
-  margin: 50px 0;
-  list-style-type: none;
-  display: flex;
-  padding: 0;
-  text-align: center;
-}
-.timeline li {
-  transition: all 200ms ease-in;
-}
 .timestamp {
   // width: 200px;
-  margin-bottom: 2em;
-  padding: 0 6em;
+  // margin-bottom: 2em;
+  padding: 0 2em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-weight: 100;
   color: var(--text-secondary);
+  font-family: futura-pt, sans-serif;
 }
 .status {
-  padding: 0 4em;
+  padding: 0 0.5em 0 3.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-top: 0.2rem solid var(--text-secondary);
+  border-left: 0.2rem solid var(--text-secondary);
   position: relative;
   transition: all 200ms ease-in;
   text-align: left;
   font-family: futura-pt, sans-serif;
   font-weight: 400;
+  height: 100%;
+  width: 70%;
 }
 
 .status h5 {
-  padding-top: 1.2em;
+  // padding-top: 1.2em;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -129,22 +117,26 @@ export default {
 }
 .status h5:before {
   content: "";
-  width: 25px;
-  height: 25px;
+  width: 2rem;
+  height: 2rem;
   background-color: var(--bg-secondary);
   border-radius: 25px;
   border: 0.2rem solid var(--text-primary);
   position: absolute;
-  top: -15px;
-  left: 42%;
+  top: 47.9%;
+  left: -0.9em;
   transition: all 200ms ease-in;
 }
 .swiper-control {
-  text-align: right;
+  text-align: left;
   font-size: 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 0.5em 0;
+  height: 90%;
+  position: absolute;
+  z-index: 10;
 
   i {
     color: var(--text-secondary);
@@ -153,16 +145,20 @@ export default {
 
 .swiper-container {
   width: 80%;
+  height: 70vh;
 }
 .swiper-slide {
-  width: 3rem;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  // height: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .swiper-slide:nth-child(2n) {
-  width: 40%;
+  height: 40%;
 }
 .swiper-slide:nth-child(3n) {
-  width: 20%;
+  height: 20%;
 }
 </style>
