@@ -1,10 +1,6 @@
 <template>
   <div>
-    <video
-      ref="videoPlayer"
-      class="video-js vjs-theme-city"
-      poster="../assets/poster.png"
-    ></video>
+    <video ref="videoPlayer" class="video-js vjs-theme-city" poster=""></video>
   </div>
 </template>
 
