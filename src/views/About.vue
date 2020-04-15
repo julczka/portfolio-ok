@@ -5,46 +5,65 @@
       <div class="about-col col1">
         <div class="about-col__img"></div>
         <div class="about-col__socico">
-          <i class="fab fa-github"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-linkedin"></i>
+          <a href="https://github.com/julczka" target="_blank"
+            ><i class="fab fa-github "></i
+          ></a>
+          <a href="https://www.instagram.com/julczka/" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/julia-gruszczynska"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
         </div>
         <div class="about-col__cv">
-          <button>Contact me</button>
+          <a href="mailto:julia.gru@gmail.com?subject=Hello"
+            ><button class="button">Contact me</button></a
+          >
         </div>
       </div>
       <div class="about-col col2">
         <div class="about-col__text">
-          <h4>My name is Julia Gruszczynska</h4>
+          <h4>My name is <b>Julia Gruszczynska</b></h4>
           <h5>
-            I’m a television director and beginner front-end developer. Want to
-            know my story? Press play.
+            I’m a television director and beginner front-end developer.
+            <b>Want to know my story? </b>Turn on the audio and press play.
           </h5>
         </div>
         <div class="youtube">
-          <video-player class="vjs-layout-medium" :options="videoOptions" />
+          <video-player :options="videoOptions" />
         </div>
-        <button>Download CV</button>
+        <button class="button">Download CV</button>
       </div>
     </div>
+    <div class="fill"></div>
+    <div class="fill"></div>
     <h2>What I can do for you</h2>
-    <SkillsGrid />
+    <SkillsGrid id="skills" />
+    <div class="fill"></div>
+    <h2 id="resume">What I was doing untill now</h2>
+    <Timeline />
+    <div class="fill"></div>
   </div>
 </template>
 
 <script>
 import SkillsGrid from "../components/SkillsGrid";
 import VideoPlayer from "../components/VideoPlayer";
+import Timeline from "../components/Timeline";
 export default {
   components: {
     SkillsGrid: SkillsGrid,
-    VideoPlayer
+    VideoPlayer,
+    Timeline
   },
   data() {
     return {
       videoOptions: {
         autoplay: false,
         controls: true,
+
         fluid: true,
         responsive: true,
         breakpoints: {
@@ -77,6 +96,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fill {
+  height: 400px;
+}
 // @import "@/styles/_video.scss";
 // $pink-light-hex: #f23558;
 .about {
@@ -87,6 +109,9 @@ export default {
   justify-content: flex-start;
   h1 {
     font-size: 7rem;
+  }
+  h2 {
+    color: var(--bg-secondary);
   }
 }
 
@@ -135,7 +160,14 @@ export default {
   &__text {
     padding: 0em 0 2em 0;
   }
+
+  .fab:hover {
+    -webkit-animation: jello-horizontal 0.9s both;
+    animation: jello-horizontal 0.9s both;
+  }
 }
+
+@import "../styles/_jello-keyframes.scss";
 
 .col1 {
   // flex: 1 1 20em;
@@ -159,7 +191,42 @@ export default {
 .youtube {
   width: 90%;
 }
-.fill {
-  height: 200px;
+
+@media only screen and (max-width: 768px) {
+  .about-row {
+    flex-direction: column;
+    width: 100%;
+
+    h4 {
+      text-align: center;
+    }
+  }
+
+  .about-col {
+    width: 90%;
+    &__text {
+      padding: 0em 0 2em 0;
+      text-align: center;
+      h4 {
+        font-size: 2.2rem;
+      }
+      h5 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .youtube {
+    width: 100%;
+  }
+
+  .col1,
+  .col2 {
+    padding: 0 0 2em 0;
+  }
+
+  .col2 {
+    align-items: center;
+  }
 }
 </style>

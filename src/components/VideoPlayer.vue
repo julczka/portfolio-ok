@@ -2,7 +2,8 @@
   <div>
     <video
       ref="videoPlayer"
-      class="video-js vjs-layout-medium vjs-theme-city"
+      class="video-js vjs-theme-city"
+      poster="../assets/poster.png"
     ></video>
   </div>
 </template>

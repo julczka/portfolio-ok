@@ -27,8 +27,8 @@
               class="minor"
             >
               <li class="underline" @click="showNav = !showNav">
-                <router-link class="minor hover hover-3" to="/">{{
-                  subLink
+                <router-link class="minor hover hover-3" :to="subLink.path">{{
+                  subLink.name
                 }}</router-link>
               </li>
             </ul>
@@ -62,16 +62,20 @@ export default {
         {
           mainLink: "Works",
           path: "/Works",
-          subLinks: ["Video", "Design", "code"]
+          subLinks: [
+            { name: "video", path: "/About#skills" },
+            { name: "Code", path: "/About#resume" },
+            { name: "Design", path: "/About#contact" }
+          ]
         },
         {
           mainLink: "About me",
           path: "/About",
-          subLinks: {
-            link1: "skills",
-            link2: "resume",
-            link3: "contact"
-          }
+          subLinks: [
+            { name: "skills", path: "/About#skills" },
+            { name: "resume", path: "/About#resume" },
+            { name: "contact", path: "/About#contact" }
+          ]
         }
       ]
 

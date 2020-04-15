@@ -1,14 +1,18 @@
-$center-big-play-button: true;
-
 .vjs-theme-city {
-  --vjs-theme-city--primary: #bf3b4d;
-  --vjs-theme-city--secondary: #fff;
+  --vjs-theme-city--primary: #f23558;
+  --vjs-theme-city--secondary: #d9d7d8;
 }
+
+.video-js .vjs-big-play-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0.06666em solid var(--vjs-theme-city--primary);
+}
+
 .vjs-theme-city .vjs-control-bar {
   height: 70px;
   padding-top: 20px;
   background: none;
-  background-image: linear-gradient(0deg, #000, transparent);
+  background-image: linear-gradient(0deg, #1f2326, transparent);
 }
 .vjs-theme-city .vjs-button > .vjs-icon-placeholder:before {
   line-height: 50px;

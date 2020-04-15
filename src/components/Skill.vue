@@ -39,6 +39,7 @@ export default {
   width: 8rem;
   background: $simplegradient;
   box-sizing: content-box;
+  margin: 1em;
 
   &__ico {
     color: var(--text-primary);

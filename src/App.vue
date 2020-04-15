@@ -27,9 +27,9 @@
     </div>
     <Navigation />
     <div class="view-wrapper">
-      <transition @enter="enter" @leave="leave" mode="out-in" :css="false">
-        <router-view />
-      </transition>
+      <!-- <transition @enter="enter" @leave="leave" mode="out-in" :css="false"> -->
+      <router-view />
+      <!-- </transition> -->
     </div>
     <Background
       ref="background"
@@ -297,6 +297,7 @@ h4 {
   font-weight: normal;
   font-style: normal;
   margin: 0;
+  font-family: futura-pt, sans-serif;
 }
 h5 {
   font-size: 1.5rem;
@@ -304,6 +305,7 @@ h5 {
   font-weight: normal;
   font-style: normal;
   margin: 0;
+  font-family: futura-pt, sans-serif;
 }
 h6 {
   font-size: 1rem;
@@ -311,9 +313,10 @@ h6 {
   font-weight: normal;
   font-style: normal;
   margin: 0;
+  font-family: futura-pt, sans-serif;
 }
 
-button {
+.button {
   border: 1.5px solid var(--bg-secondary);
   color: var(--text-primary);
   background: var(--bg-primary);
@@ -324,6 +327,7 @@ button {
   font-family: futura-pt, sans-serif;
   font-weight: 500;
   margin: 0.5em;
+  cursor: pointer;
 }
 
 @import "./styles/_jello-keyframes.scss";
@@ -331,20 +335,22 @@ button {
 @media only screen and (max-width: 374px) {
   :root {
     font-size: 8px;
-    color: pink;
   }
 
   #nav {
     i {
       font-size: 5rem;
     }
+  }
+
+  .button {
+    font-size: 2rem;
   }
 }
 
 @media only screen and (min-width: 375px) {
   :root {
     font-size: 8px;
-    color: pink;
   }
 
   #nav {
@@ -352,12 +358,15 @@ button {
       font-size: 5rem;
     }
   }
+
+  .button {
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (min-width: 576px) {
   :root {
     font-size: 10px;
-    color: aqua;
   }
 
   #nav {
@@ -365,12 +374,14 @@ button {
       font-size: 4rem;
     }
   }
+  .button {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   :root {
     font-size: 12px;
-    color: blue;
   }
 
   #nav {
@@ -378,26 +389,27 @@ button {
       font-size: 3rem;
     }
   }
+
+  .button {
+    font-size: 1rem;
+  }
 }
 
 @media only screen and (min-width: 992px) {
   :root {
     font-size: 14px;
-    color: chartreuse;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   :root {
     font-size: 16px;
-    color: coral;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   :root {
     font-size: 18px;
-    color: crimson;
   }
 }
 </style>
