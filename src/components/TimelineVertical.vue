@@ -15,8 +15,8 @@
           <span class="date">{{ item.dateLabel }}</span>
         </div>
         <div class="status">
-          <h5>{{ item.title }}</h5>
-          <p>
+          <h5 v-html="item.title">{{ item.title }}</h5>
+          <p v-html="item.description">
             {{ item.description }}
           </p>
         </div>
@@ -34,7 +34,7 @@ export default {
   name: "timeline-vertical",
   data() {
     return {
-      steps: resume
+      steps: resume,
     };
   },
 
@@ -54,10 +54,10 @@ export default {
       // },
       navigation: {
         nextEl: ".next-slide",
-        prevEl: ".prev-slide"
-      }
+        prevEl: ".prev-slide",
+      },
     });
-  }
+  },
 };
 </script>
 

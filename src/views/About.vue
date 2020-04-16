@@ -56,7 +56,7 @@ export default {
   components: {
     SkillsGrid: SkillsGrid,
     VideoPlayer,
-    TimelineDetection
+    TimelineDetection,
   },
   data() {
     return {
@@ -73,25 +73,25 @@ export default {
           medium: 600,
           large: 700,
           xlarge: 800,
-          huge: 900
+          huge: 900,
         },
         sources: [
           {
             src: require("../assets/julia_krysytyna_gruszczynska.mp4"),
-            type: "video/mp4"
-          }
-        ]
-      }
+            type: "video/mp4",
+          },
+        ],
+      },
     };
   },
 
   methods: {
     playing() {
       console.log(" we are watching!!!");
-    }
+    },
   },
 
-  mounted() {}
+  mounted() {},
 };
 </script>
 
@@ -112,7 +112,7 @@ export default {
   }
   h2 {
     color: var(--bg-secondary);
-    margin: 1em 1.6em;
+    margin: 0.7em 1.6em;
   }
 }
 

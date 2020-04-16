@@ -21,13 +21,16 @@
   },
   {
     "dateLabel": "2013",
-    "title": "DIRECTOR @ TVN STYLE",
-    "description": "Preparing scripts, directing shows:  '66 niezapomnianych' (2013 - 2015), 'Pani gadżet' (2015 - 2016), 'Bez skazy' (2016). I was responsible for writing scripts for the TV shows mentioned above, planning, and executing work on the film set, also for collaborating with video editors in the postproduction process under the pressure of on-air deadlines. Working on the TV set has given me necessary skills for working in dynamic environment and quickly adapt to changes."
+    "title": "DIRECTOR @ <a href=\"https://www.tvnstyle.pl/\" target=\"blank\" class=\"timeline-link\"> <u>TVN STYLE</u> </a>",
+    "description": "Preparing scripts, directing shows:  '66 niezapomnianych' (2013 - 2015), 'Pani gadzet' (2015 - 2016), 'Bez skazy' (2016). I was responsible for writing scripts for the TV shows mentioned above, planning, and executing work on the film set, also for collaborating with video editors in the postproduction process under the pressure of on-air deadlines. Working on the TV set has given me necessary skills for working in dynamic environment and quickly adapt to changes."
   },
   {
     "dateLabel": "2016",
-    "title": "ONLINE VIDEO JOURNALIST/EDITOR @ WIRTUALNA POLSKA",
-    "description": "Creating video content in form of short films for leading Polish portal www.wp.pl. I was responsible for writing a short script about topics such as current events, science, or lifestyle based on the research I had done and editing a clip in Adobe Premiere Pro, mostly from stock footage according to aforementioned script."
+    "title": "ONLINE VIDEO JOURNALIST/EDITOR @ <a href=\"https://www.wp.pl/\" target=\"blank\" class=\"timeline-link\"> <u>WIRTUALNA POLSKA</u> </a>",
+    "description": "Creating video content in form of short films for leading Polish portal <a href=\"https://www.wp.pl/\" target=\"blank\" class=\"timeline-link\"> <u>wp.pl.</u> </a> I was responsible for writing a short script about topics such as current events, science, or lifestyle based on the research I had done and editing a clip in Adobe Premiere Pro, mostly from stock footage according to aforementioned script."
   },
-  { "dateLabel": "2019", "title": "MULTIMEDIA DESIGN STUDENT @ EASV" }
+  {
+    "dateLabel": "2019",
+    "title": "MULTIMEDIA DESIGN STUDENT @ <a href=\"https://www.easv.dk/da/\" target=\"blank\" class=\"timeline-link\"> <u>EASV</u> </a>"
+  }
 ]

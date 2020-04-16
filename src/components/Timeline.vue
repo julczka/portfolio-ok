@@ -11,8 +11,8 @@
           <span class="date">{{ item.dateLabel }}</span>
         </div>
         <div class="status">
-          <h5>{{ item.title }}</h5>
-          <p>
+          <h5 v-html="item.title">{{ item.title }}</h5>
+          <p v-html="item.description">
             {{ item.description }}
           </p>
         </div>
@@ -30,7 +30,7 @@ export default {
   name: "timeline",
   data() {
     return {
-      steps: resume
+      steps: resume,
     };
   },
 
@@ -42,14 +42,14 @@ export default {
       grabCursor: true,
       pagination: {
         el: ".swiper-pagination",
-        clickable: true
+        clickable: true,
       },
       navigation: {
         nextEl: ".next-slide",
-        prevEl: ".prev-slide"
-      }
+        prevEl: ".prev-slide",
+      },
     });
-  }
+  },
 };
 </script>
 
@@ -127,6 +127,12 @@ export default {
 .status p {
   color: var(--text-secondary);
 }
+
+.timeline-link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  font-size: 2rem;
+}
 .status h5:before {
   content: "";
   width: 25px;
@@ -148,6 +154,10 @@ export default {
 
   i {
     color: var(--text-secondary);
+  }
+
+  .disabled {
+    opacity: 0.3;
   }
 }
 
