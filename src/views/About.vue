@@ -34,7 +34,7 @@
         <div class="youtube">
           <video-player :options="videoOptions" />
         </div>
-        <a href="/pdf/Julia-Gruszczynska-CV-2020.pdf"
+        <a href="/pdf/Julia-Gruszczynska-CV-2020.pdf" target="_blank"
           ><button class="button">Download CV</button></a
         >
       </div>
@@ -46,6 +46,9 @@
     <h2 id="resume">What I was doing untill now</h2>
     <TimelineDetection />
     <div class="fill"></div>
+    <h2 id="contact">Contact me</h2>
+    <Contact />
+    <div class="fill"></div>
   </div>
 </template>
 
@@ -53,12 +56,14 @@
 import SkillsGrid from "../components/SkillsGrid";
 import VideoPlayer from "../components/VideoPlayer";
 import TimelineDetection from "../components/TimelineDetection";
+import Contact from "../components/Contact";
 
 export default {
   components: {
     SkillsGrid: SkillsGrid,
     VideoPlayer,
     TimelineDetection,
+    Contact,
   },
   data() {
     return {
@@ -100,7 +105,7 @@ export default {
 
 <style lang="scss" scoped>
 .fill {
-  height: 400px;
+  height: 100px;
 }
 // @import "@/styles/_video.scss";
 // $pink-light-hex: #f23558;

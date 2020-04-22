@@ -237,14 +237,14 @@ export default {
   name: "Background",
   props: {
     height: { type: Number },
-    dark: { type: Boolean }
+    dark: { type: Boolean },
   },
   data() {
     return {
       backgroundTween: new gsap.timeline({ paused: true }),
       layoutAnimation: new gsap.timeline({ paused: true }),
       windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight
+      windowHeight: window.innerHeight,
     };
   },
 
@@ -271,7 +271,7 @@ export default {
 
     ratioIsPortrait: function() {
       return this.windowWidth < this.windowHeight;
-    }
+    },
   },
 
   methods: {
@@ -288,7 +288,7 @@ export default {
           ease: "sine.inOut",
           yoyo: true,
           transformOrigin: "center center",
-          immediateRender: true
+          immediateRender: true,
         }
       );
       this.layoutAnimation.fromTo(
@@ -303,7 +303,7 @@ export default {
           ease: "sine.inOut",
           yoyo: true,
           transformOrigin: "center center",
-          immediateRender: true
+          immediateRender: true,
         }
       );
 
@@ -318,7 +318,7 @@ export default {
           ease: "expo.inOut",
           yoyo: true,
           transformOrigin: "center center",
-          immediateRender: true
+          immediateRender: true,
         }
       );
 
@@ -333,7 +333,7 @@ export default {
           ease: "expo.inOut",
           yoyo: true,
           transformOrigin: "center center",
-          immediateRender: true
+          immediateRender: true,
         }
       );
 
@@ -351,7 +351,7 @@ export default {
           duration: 0.7,
           ease: "back.inOut(3)",
 
-          onComplete: done
+          onComplete: done,
         }
       );
     },
@@ -365,10 +365,10 @@ export default {
           scale: 0,
           duration: 0.7,
           ease: "back.inOut(3)",
-          onComplete: done
+          onComplete: done,
         }
       );
-    }
+    },
   },
 
   watch: {
@@ -383,7 +383,7 @@ export default {
       }
       // this.backgroundTween.reversed(!this.backgroundTween.reversed());
       console.log("Prop changed: ", newVal, " | was: ", oldVal, "animation");
-    }
+    },
   },
 
   mounted() {
@@ -398,7 +398,7 @@ export default {
         console.log("component updated");
       else console.log("ratio > 1");
     };
-  }
+  },
 };
 </script>
 

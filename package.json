@@ -10,6 +10,7 @@
   "dependencies": {
     "@videojs/themes": "^1.0.0",
     "core-js": "^3.6.4",
+    "emailjs-com": "^2.4.1",
     "gsap": "^3.2.6",
     "install": "^0.13.0",
     "normalize.css": "^8.0.1",
