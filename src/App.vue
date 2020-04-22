@@ -49,13 +49,13 @@ import Background from "../src/components/Background";
 export default {
   components: {
     Navigation: Navigation,
-    Background: Background
+    Background: Background,
   },
   data() {
     return {
       darkMode: false,
       height: 0,
-      darkModeTween: new gsap.timeline({ paused: true })
+      darkModeTween: new gsap.timeline({ paused: true }),
     };
   },
 
@@ -66,7 +66,7 @@ export default {
         this.height = this.$el.scrollHeight;
         console.log(this.$el.scrollHeight, this.height);
       });
-    }
+    },
   },
 
   methods: {
@@ -77,13 +77,13 @@ export default {
     enter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, scale: 1.5 },
+        { opacity: 0 },
         {
           opacity: 1,
-          scale: 1,
+
           duration: 0.4,
           ease: "power(3)",
-          onComplete: done
+          onComplete: done,
         }
       );
     },
@@ -97,10 +97,10 @@ export default {
           scale: 0.5,
           duration: 0.4,
           ease: "power(3)",
-          onComplete: done
+          onComplete: done,
         }
       );
-    }
+    },
   },
 
   mounted() {
@@ -108,12 +108,12 @@ export default {
 
     this.darkModeTween.to("html", 0.5, {
       "--text-primary": "#df485c",
-      ease: "power4.out"
+      ease: "power4.out",
     });
 
     this.darkModeTween.to("html", 1.4, {
       "--bg-primary": "#202326",
-      ease: "power4.out"
+      ease: "power4.out",
     });
 
     this.darkModeTween.to(
@@ -121,7 +121,7 @@ export default {
       0.5,
       {
         "--gradient-bg-rgba": "rgba(31, 35, 38, 0)",
-        ease: "power4.out"
+        ease: "power4.out",
       },
       "<"
     );
@@ -131,14 +131,14 @@ export default {
       0.5,
       {
         "--gradient-accent-rgba": "rgba(94, 46, 55, 1)",
-        ease: "power4.out"
+        ease: "power4.out",
       },
       "<"
     );
 
     this.darkModeTween.to("html", 0.5, {
       "--bg-secondary": "#823541",
-      ease: "power4.out"
+      ease: "power4.out",
     });
 
     this.darkModeTween.to(
@@ -146,7 +146,7 @@ export default {
       0.5,
       {
         "--text-secondary": "#d9d7d8",
-        ease: "power4.out"
+        ease: "power4.out",
       },
       "<"
     );
@@ -162,7 +162,7 @@ export default {
     //   this.height = this.$el.scrollHeight;
     //   console.log(this.$el.scrollHeight, this.height);
     // });
-  }
+  },
 };
 </script>
 

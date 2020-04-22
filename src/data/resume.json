@@ -1,24 +1,20 @@
 [
   {
     "dateLabel": "2005",
-    "title": "PRODUCTION MANAGER @ TVN",
-    "description": "Postproduction supervision of various shows: Superniania , Misja Martyna."
+    "title": "PRODUCTION MANAGER @ <a href=\"https://www.tvn.pl/\" target=\"blank\" class=\"timeline-link\"> <u>TVN</u> </a>",
+    "description": "Postproduction supervision of various shows: Superniania (reality show) , Misja Martyna (travel)."
   },
   {
     "dateLabel": "2008",
-    "title": "ON-AIR PROMOTION PRODUCER @ TVN WARSZAWA",
+    "title": "ON-AIR PROMOTION PRODUCER @ <a href=\"https://tvn24.pl/tvnwarszawa/\" target=\"blank\" class=\"timeline-link\"> <u>TVN WARSZAWA</u> </a>",
     "description": "Creative director of on-air promotions in local Warsaw TV channel TVN Warszawa (closed down).  My main tasks were creating promos for all the programs aired on the TVN Warszawa Channel. That included writing scripts, editing clips, directing voice over artists, and implementing the channel’s graphic design to create attractive and clear marketing communication."
   },
   {
     "dateLabel": "2010",
-    "title": "PRODUCER @ BADI BADI FX STUDIO",
+    "title": "PRODUCER @ <a href=\"http://www.badibadi.com/\" target=\"blank\" class=\"timeline-link\"> <u>BADI BADI FX STUDIO</u> </a> and BOX POSTPRODUCTION",
     "description": "Planning, budgeting, video and audio postproduction supervision in tv commercials. I was managing postproduction processes in many commercial projects like advertising films and corporate videos, often more than one at the time. Not only did it require specific and expert knowledge of film postproduction, but also the ability to keep good relationships with highly demanding clients as well as managing and coordinating a team of artists with little space for errors and always under a lot of pressure."
   },
-  {
-    "dateLabel": "2012",
-    "title": "POSTPRODUCTION MANAGER @ BOX POSTPRODUCTION",
-    "description": "Planning, budgeting, video and audio postproduction supervision in tv commercials. I was managing postproduction processes in many commercial projects like advertising films and corporate videos, often more than one at the time. Not only did it require specific and expert knowledge of film postproduction, but also the ability to keep good relationships with highly demanding clients as well as managing and coordinating a team of artists with little space for errors and always under a lot of pressure. "
-  },
+
   {
     "dateLabel": "2013",
     "title": "DIRECTOR @ <a href=\"https://www.tvnstyle.pl/\" target=\"blank\" class=\"timeline-link\"> <u>TVN STYLE</u> </a>",
@@ -31,6 +27,7 @@
   },
   {
     "dateLabel": "2019",
-    "title": "MULTIMEDIA DESIGN STUDENT @ <a href=\"https://www.easv.dk/da/\" target=\"blank\" class=\"timeline-link\"> <u>EASV</u> </a>"
+    "title": "MULTIMEDIA DESIGN STUDENT @ <a href=\"https://www.easv.dk/da/\" target=\"blank\" class=\"timeline-link\"> <u>EASV</u> </a>",
+    "description": "Full time AP programme in Multimedia Design and Communication. The aim of the programme is to teach students how to work professionally with design and development of digital products."
   }
 ]

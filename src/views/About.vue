@@ -34,7 +34,9 @@
         <div class="youtube">
           <video-player :options="videoOptions" />
         </div>
-        <button class="button">Download CV</button>
+        <a href="/pdf/Julia-Gruszczynska-CV-2020.pdf"
+          ><button class="button">Download CV</button></a
+        >
       </div>
     </div>
 
@@ -82,6 +84,7 @@ export default {
           },
         ],
       },
+      // publicPath: process.env.BASE_URL,
     };
   },
 
@@ -184,8 +187,11 @@ export default {
   padding-left: 3em;
 
   button {
-    align-self: flex-end;
+  }
+
+  a {
     margin-right: calc(10%);
+    align-self: flex-end;
   }
 }
 

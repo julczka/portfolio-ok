@@ -15,7 +15,7 @@
           tag="ul"
           class="nav-container"
         >
-          <ul v-for="(link, index) in navLinks" v-bind:key="index">
+          <ul v-for="link in navLinks" v-bind:key="link.id">
             <li @click="showNav = !showNav" class="underline">
               <router-link :to="link.path" class="hover hover-3">{{
                 link.mainLink
@@ -23,7 +23,7 @@
             </li>
             <ul
               v-for="subLink in link.subLinks"
-              v-bind:key="subLink"
+              v-bind:key="subLink.id"
               class="minor"
             >
               <li class="underline" @click="showNav = !showNav">
@@ -60,24 +60,26 @@ export default {
       showNav: false,
       navLinks: [
         {
+          id: 1,
           mainLink: "Works",
           path: "/Works",
           subLinks: [
-            { name: "video", path: "/About#skills" },
-            { name: "Code", path: "/About#resume" },
-            { name: "Design", path: "/About#contact" }
-          ]
+            { id: 11, name: "video", path: "/About#skills" },
+            { id: 12, name: "Code", path: "/About#resume" },
+            { id: 13, name: "Design", path: "/About#contact" },
+          ],
         },
         {
+          id: 2,
           mainLink: "About me",
           path: "/About",
           subLinks: [
-            { name: "skills", path: "/About#skills" },
-            { name: "resume", path: "/About#resume" },
-            { name: "contact", path: "/About#contact" }
-          ]
-        }
-      ]
+            { id: 21, name: "skills", path: "/About#skills" },
+            { id: 22, name: "resume", path: "/About#resume" },
+            { id: 23, name: "contact", path: "/About#contact" },
+          ],
+        },
+      ],
 
       // "Works",
 
@@ -97,7 +99,7 @@ export default {
           y: "0px",
           duration: 0.7,
           ease: "power4.out",
-          onComplete: done
+          onComplete: done,
         }
       );
     },
@@ -112,7 +114,7 @@ export default {
           duration: 0.5,
           ease: "back.inOut(3)",
           onComplete: done,
-          stagger: 0.1
+          stagger: 0.1,
         }
       );
     },
@@ -131,11 +133,11 @@ export default {
           y: "400px",
           duration: 0.7,
           ease: "power4.in",
-          onComplete: done
+          onComplete: done,
         }
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
