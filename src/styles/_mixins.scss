@@ -3,3 +3,11 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin gird-gradient($degs) {
+  background-image: linear-gradient(
+    $degs,
+    var(--bg-primary) 50%,
+    var(--gradient-accent-rgba) 100%
+  );
+}

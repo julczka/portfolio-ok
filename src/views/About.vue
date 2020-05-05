@@ -118,6 +118,7 @@ export default {
   h1 {
     font-size: 7rem;
   }
+
   h2 {
     color: var(--bg-secondary);
     margin: 0.7em 1.6em;
@@ -190,9 +191,6 @@ export default {
   align-items: flex-start;
   justify-content: space-between;
   padding-left: 3em;
-
-  button {
-  }
 
   a {
     margin-right: calc(10%);

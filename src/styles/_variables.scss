@@ -20,4 +20,10 @@ $simplegradient: linear-gradient(
   var(--gradient-accent-rgba) 100%
 );
 
+$bcg-gradient: linear-gradient(
+  180deg,
+  var(--bg-primary) 50%,
+  var(--gradient-accent-rgba) 100%
+);
+
 $futura: futura-pt, sans-serif;

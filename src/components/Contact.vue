@@ -96,7 +96,7 @@ export default {
   }
 
   .button {
-    margin-top: 4em;
+    margin-top: 1em;
   }
 }
 

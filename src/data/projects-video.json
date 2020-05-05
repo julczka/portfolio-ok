@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "projectTitle": "Mirka",
+    "category": "Commercial",
+    "description": "This short film was commisionned by grinder producer. Famous from it's dust-free technology, Mirka company wanted to create a film that will underline how easy it is to finish the renovation when using their product. Main message of the campaing was \"I do not clean after renovation\". The struggle of tydying a house after any renovation works is underlined in the advert in a comical way",
+    "myRole": "I was responsible for screenpay, casting and directing the film",
+    "videoSrc": "../sjdkjdkdkjd.mp4",
+    "imgCover": "",
+    "img1": "",
+    "img2": "",
+    "img3": ""
+  },
+  {
+    "id": 2,
+    "projectTitle": "Omnis Project",
+    "category": "Infomecial",
+    "description": "The goal was to present the new funcionality of Polish National Library - Omnis. This is the national IT system to unite all the polish libraries, big and small and offer a single acces point to them for the reader",
+    "myRole": "I was responsible for screenplay and directing both live-action and animated sequences",
+    "videoSrc": "../sjdkjdkdkjd.mp4",
+    "imgCover": "",
+    "img1": "",
+    "img2": "",
+    "img3": ""
+  },
+  {
+    "id": 3,
+    "projectTitle": "Polona 2 millions",
+    "category": "Infomecial",
+    "description": "My second project for The National Library of Poland. Film was suppose to promote and popularize online library - Polona, with over 2 million books, magazines and other assets available for readers at that time, and showcase the most valueble of them.",
+    "myRole": "I was responsible for screenplay and directing the infomercial",
+    "videoSrc": "../sjdkjdkdkjd.mp4",
+    "imgCover": "",
+    "img1": "",
+    "img2": "",
+    "img3": ""
+  },
+  {
+    "id": 4,
+    "projectTitle": "Electromobility is the future",
+    "category": "Social campaign",
+    "description": "One of the three film commisioned by Polish Ministry of Environment to promote electric cars. The goal of the campain was to build a positive and cool image around the electric car",
+    "myRole": "I was responsible for screenplay, casting and directing the film",
+    "videoSrc": "../sjdkjdkdkjd.mp4",
+    "imgCover": "",
+    "img1": "",
+    "img2": "",
+    "img3": ""
+  },
+  {
+    "id": 5,
+    "projectTitle": "Ozone therapy for stomatology",
+    "category": "Infomercial",
+    "description": "Film was created for polish company Metrum Cryoflex, constructors of first complex system for ozone therapy in dentistry",
+    "myRole": "I was responsible for screenplay, casting and directing the film",
+    "videoSrc": "../sjdkjdkdkjd.mp4",
+    "imgCover": "",
+    "img1": "",
+    "img2": "",
+    "img3": ""
+  },
+  {
+    "id": 6,
+    "projectTitle": "Switch to electric car!",
+    "category": "Social campaign",
+    "description": "One of the three film commisioned by Polish Ministry of Environment to promote electric cars and buses. The goal of the campain was to build a positive and cool image around the electric transportation",
+    "myRole": "I was responsible for screenplay, casting and directing the film",
+    "videoSrc": "../sjdkjdkdkjd.mp4",
+    "imgCover": "",
+    "img1": "",
+    "img2": "",
+    "img3": ""
+  }
+]

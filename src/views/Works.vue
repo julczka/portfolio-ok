@@ -1,57 +1,64 @@
 <template>
-  <div>
-    <svg
-      id="Layer_1"
-      data-name="Layer 1"
-      xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="22"
-      viewBox="0 0 22 22"
-    >
-      <defs></defs>
-      <g id="Photoshop">
-        <g id="_Group_" data-name=" Group ">
-          <rect
-            id="_Rectangle_"
-            data-name=" Rectangle "
-            class="cls-1"
-            x="0.5"
-            y="0.5"
-            width="21"
-            height="21"
-          />
-
-          <g id="_Group_2" data-name=" Group 2">
-            <path
-              id="_Path_"
-              data-name=" Path "
-              class="cls-1"
-              d="M7.5,16.5v-9c2.53-.34,5,.13,5,2.5s-3.34,3.22-5,2.5"
-              transform="translate(-1 -1)"
-            />
-            <path
-              id="_Path_2"
-              data-name=" Path 2"
-              class="cls-1"
-              d="M17.5,11c-.77-.73-3-.85-3,1s3,.9,3,3-2.37,1.6-3,1"
-              transform="translate(-1 -1)"
-            />
-          </g>
-        </g>
-      </g>
-    </svg>
+  <div class="work">
+    <div class="fill"></div>
+    <div class="work-row">
+      <ProjectGrid :projects="videoProjects" />
+      <h2>Video</h2>
+    </div>
+    <div class="fill"></div>
   </div>
 </template>
 
 <script>
-export default {};
+import ProjectGrid from '../components/ProjectGrid';
+import ProjectsVideo from '../data/projects-video.json';
+
+export default {
+  components: {
+    ProjectGrid,
+  },
+  data() {
+    return {
+      videoProjects: ProjectsVideo,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.cls-1 {
-  fill: none;
-  stroke: var(--text-primary);
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.fill {
+  height: 800px;
+}
+.work {
+  width: 100%;
+
+  @include flex-center();
+  flex-direction: column;
+
+  h2 {
+    color: var(--bg-secondary);
+    font-size: 7rem;
+    margin: 0 0.5em;
+    writing-mode: vertical-rl;
+  }
+}
+
+.work-row {
+  width: 100%;
+  @include flex-center();
+  justify-content: flex-end; // margin: 1rem 3rem 5rem 3rem;
+  // height: calc(100vh - 18 rem);
+  h4,
+  h5 {
+    text-align: left;
+  }
+
+  h4 {
+    color: $pink-light-hex;
+  }
+
+  h5 {
+    color: var(--text-secondary);
+  }
 }
 </style>

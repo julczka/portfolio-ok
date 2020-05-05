@@ -5,26 +5,14 @@
         class="button"
         v-for="(entry, index) in filterList"
         :key="index"
-        @click="
-          setFilter(entry);
-          setIndex(index);
-        "
+        @click="setFilter(entry)"
       >
         {{ entry.toUpperCase() }}
       </button>
     </div>
 
     <transition-group tag="div" class="parent " name="skill-list">
-      <div
-        v-for="skill in filteredSkills"
-        :key="skill.id"
-        :class="[
-          `div${filteredSkills.indexOf(skill)}`,
-          `${skill.category}`,
-          `all`,
-          `skill-list-item`
-        ]"
-      >
+      <div v-for="skill in filteredSkills" :key="skill.id">
         <Skill
           :name="skill.name"
           :icon="skill.icon"
@@ -37,21 +25,20 @@
 </template>
 
 <script>
-import Skill from "../components/Skill.vue";
-import skillsData from "../data/skills.json";
-import gsap from "gsap";
+import Skill from '../components/Skill.vue';
+import skillsData from '../data/skills.json';
+
 export default {
-  name: "SkillsGrid",
+  name: 'SkillsGrid',
   components: {
-    Skill: Skill
+    Skill: Skill,
   },
   data() {
     return {
       skills: skillsData,
-      fkey: "category",
-      filterList: ["code", "design", "film", "all"],
-      filter: "all",
-      filterIndex: 0
+      fkey: 'category',
+      filterList: ['code', 'design', 'film', 'all'],
+      filter: 'all',
     };
   },
   computed: {
@@ -59,7 +46,7 @@ export default {
       var vm = this;
       var category = vm.filter;
 
-      if (category === "all") {
+      if (category === 'all') {
         return vm.skills;
       } else {
         return vm.skills.filter(function(skill) {
@@ -67,59 +54,12 @@ export default {
         });
       }
     },
-    filtersNegative: function() {
-      let filters = [...this.filterList];
-      let i = this.filterIndex;
-      filters.splice(i, 1);
-      return filters.map(item => `.${item}`);
-    }
   },
   methods: {
     setFilter: function(entry) {
       this.filter = entry;
-      // console.log(entry, this.filter);
     },
-
-    setIndex: function(index) {
-      this.filterIndex = index;
-      console.log(index, this.filterIndex, this.filtersNegative);
-    },
-
-    skillEnter(el, done) {
-      let tl = gsap.timeline({ paused: true });
-
-      tl.fromTo(
-        el,
-        { opacity: 0, scale: 0 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          ease: "back.inOut(3)",
-          onComplete: done,
-          stagger: 0.1
-        }
-      );
-      // tl.to(`.${this.filter}`, { opacity: 1 });
-      tl.play();
-    },
-
-    skillLeave(el, done) {
-      gsap.fromTo(
-        el,
-        { opacity: 1, scale: 1 },
-        {
-          opacity: 0,
-          scale: 0,
-          duration: 0.5,
-          ease: "back.inOut(3)",
-          onComplete: done,
-          stagger: 0.1
-        }
-      );
-      // gsap.to(`${this.filtersNegative}`, { opacity: 1 });
-    }
-  }
+  },
 };
 </script>
 
@@ -157,10 +97,6 @@ h3 {
   justify-content: center;
 }
 
-// .skill-list-item {
-//   transition: all 0.2s ease;
-// }
-
 .skill-list-move {
   transition: transform 0.7s cubic-bezier(0.42, -0.56, 0.41, 1.37);
 }
@@ -170,12 +106,6 @@ h3 {
     cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
   animation: scale-in-center 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
-
-// .skill-list-leave {
-//   -webkit-animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-//     both;
-//   animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-// }
 
 .skill-list-leave-to
 /* .list-complete-leave-active below version 2.1.8 */ {
