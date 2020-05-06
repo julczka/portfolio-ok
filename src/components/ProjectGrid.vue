@@ -19,57 +19,6 @@
         <h6>{{ project.category }}</h6>
       </div>
     </router-link>
-
-    <!-- <div class="div2 bcg">
-      <div
-        class="img"
-        :style="{
-          'background-image': 'url(' + require(`../assets/${imgPath}`) + ')',
-        }"
-      ></div>
-      <div class="txt">
-        <h4>
-          Project 2
-        </h4>
-        <h5>Omnis super addvert</h5>
-      </div>
-    </div>
-    <div class="div3 bcg">
-      <div class="img"></div>
-      <div class="txt">
-        <h4>
-          Project 3
-        </h4>
-        <h5>Omnis super addvert</h5>
-      </div>
-    </div>
-    <div class="div4 bcg">
-      <div class="img"></div>
-      <div class="txt">
-        <h4>
-          Project 4
-        </h4>
-        <h5>Omnis super addvert</h5>
-      </div>
-    </div>
-    <div class="div5 bcg">
-      <div class="img"></div>
-      <div class="txt">
-        <h4>
-          Project 5
-        </h4>
-        <h5>Omnis super addvert</h5>
-      </div>
-    </div>
-    <div class="div6 bcg">
-      <div class="img"></div>
-      <div class="txt">
-        <h4>
-          Project 6
-        </h4>
-        <h5>Omnis super addvert</h5>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -125,6 +74,10 @@ export default {
   height: 13rem;
   @include flex-center();
   flex-direction: column;
+  transition: $animate;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .div1 {

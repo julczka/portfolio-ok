@@ -52,53 +52,46 @@
 </template>
 
 <script>
-import gsap from "gsap";
+import gsap from 'gsap';
 export default {
-  name: "Navigation",
+  name: 'Navigation',
   data() {
     return {
       showNav: false,
       navLinks: [
         {
           id: 1,
-          mainLink: "Works",
-          path: "/Works",
+          mainLink: 'Works',
+          path: '/Works',
           subLinks: [
-            { id: 11, name: "video", path: "/About#skills" },
-            { id: 12, name: "Code", path: "/About#resume" },
-            { id: 13, name: "Design", path: "/About#contact" },
+            { id: 11, name: 'video', path: '/Works#video' },
+            { id: 12, name: 'Code', path: '/Works#code' },
+            { id: 13, name: 'Design', path: '/Works#design' },
           ],
         },
         {
           id: 2,
-          mainLink: "About me",
-          path: "/About",
+          mainLink: 'About me',
+          path: '/About',
           subLinks: [
-            { id: 21, name: "skills", path: "/About#skills" },
-            { id: 22, name: "resume", path: "/About#resume" },
-            { id: 23, name: "contact", path: "/About#contact" },
+            { id: 21, name: 'skills', path: '/About#skills' },
+            { id: 22, name: 'resume', path: '/About#resume' },
+            { id: 23, name: 'contact', path: '/About#contact' },
           ],
         },
       ],
-
-      // "Works",
-
-      // "about me",
-      // "skills",
-      // "resume",
-      // "contact",
     };
   },
   methods: {
     enter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, y: "300px" },
+        { opacity: 0, y: '300px' },
         {
           opacity: 1,
-          y: "0px",
+          y: '0px',
           duration: 0.7,
-          ease: "power4.out",
+          ease: 'power4.out',
           onComplete: done,
         }
       );
@@ -107,32 +100,27 @@ export default {
     listEnter(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 0, x: "200px" },
+        { opacity: 0, x: '200px' },
         {
           opacity: 1,
-          x: "0px",
+          x: '0px',
           duration: 0.5,
-          ease: "back.inOut(3)",
+          ease: 'back.inOut(3)',
           onComplete: done,
           stagger: 0.1,
         }
       );
     },
 
-    // beforeLeave(el) {
-    //   el.style.opacity = 1;
-    //   el.style.transform = "scale(1,1)";
-    // },
-
     leave(el, done) {
       gsap.fromTo(
         el,
-        { opacity: 1, y: "0px" },
+        { opacity: 1, y: '0px' },
         {
           opacity: 0,
-          y: "400px",
+          y: '400px',
           duration: 0.7,
-          ease: "power4.in",
+          ease: 'power4.in',
           onComplete: done,
         }
       );
@@ -224,7 +212,7 @@ a {
   text-transform: capitalize;
 }
 
-@import "../styles/_line-hover.scss";
+@import '../styles/_line-hover.scss';
 
 @media screen and (min-aspect-ratio: 1/1) and (max-width: 1024px) {
   .nav-container {
