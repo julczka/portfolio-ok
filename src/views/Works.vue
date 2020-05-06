@@ -25,7 +25,7 @@
       >
         <div class="work-row">
           <ProjectGrid :projects="videoProjects" id="video" />
-          <h2>Video</h2>
+          <h2 class="side-header">Video</h2>
         </div>
       </intersect>
 
@@ -34,8 +34,8 @@
         @leave="lineWidth('#line-code', '0%')"
       >
         <div class="work-row">
-          <ProjectGrid :projects="videoProjects" id="code" />
-          <h2>Code</h2>
+          <ProjectGrid :projects="codeProjects" id="code" />
+          <h2 class="side-header">Code</h2>
         </div>
       </intersect>
 
@@ -44,8 +44,8 @@
         @leave="lineWidth('#line-design', '0%')"
       >
         <div class="work-row">
-          <ProjectGrid :projects="videoProjects" id="design" />
-          <h2>Design</h2>
+          <ProjectGrid :projects="designProjects" id="design" />
+          <h2 class="side-header">Design</h2>
         </div>
       </intersect>
     </div>
@@ -55,6 +55,8 @@
 <script>
 import ProjectGrid from '../components/ProjectGrid';
 import ProjectsVideo from '../data/projects-video.json';
+import ProjectsCode from '../data/projects-code.json';
+import ProjectsDesign from '../data/projects-design.json';
 import Intersect from 'vue-intersect';
 
 import { gsap } from 'gsap';
@@ -70,6 +72,8 @@ export default {
   data() {
     return {
       videoProjects: ProjectsVideo,
+      codeProjects: ProjectsCode,
+      designProjects: ProjectsDesign,
       msg: 'I will change',
       msg2: 'I will change',
       msg3: 'I will change',
@@ -178,6 +182,18 @@ export default {
 
   h5 {
     color: var(--text-secondary);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .side-header {
+    display: none;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+  .work-row {
+    justify-content: center;
   }
 }
 </style>

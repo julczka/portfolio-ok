@@ -24,7 +24,7 @@
 // import gsap from "gsap";
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
 
   mounted() {
@@ -43,12 +43,12 @@ export default {
     //     immediateRender: true
     //   }
     // );
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_line-hover.scss";
+@import '../styles/_line-hover.scss';
 
 .home {
   display: flex;
@@ -81,13 +81,13 @@ export default {
   filter: grayscale(1);
   width: 6.5em;
   height: 6.5em;
-  background-image: url("../assets/mirka.png");
+  background-image: url('../assets/mirka.png');
   background-size: cover;
   background-position: center;
   transition: $animate;
 
   &_about {
-    background-image: url("../assets/about-ME.jpg");
+    background-image: url('../assets/about-ME.jpg');
   }
 }
 
@@ -115,7 +115,7 @@ export default {
   }
 }
 
-@media screen and (min-widthh: 992px) {
+@media screen and (min-width: 992px) {
   .link {
     font-size: 3rem;
   }

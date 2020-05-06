@@ -1,5 +1,13 @@
 <template>
   <div>
+    <iframe
+      :src="currentProject.videoSrc"
+      width="640"
+      height="360"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
     <h5>
       {{ currentProject.projectTitle }}
     </h5>
