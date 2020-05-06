@@ -1,9 +1,10 @@
 <template>
   <div class="parent">
-    <div
-      v-for="project in projects"
+    <router-link
+      :to="{ name: 'ProjectDetails', params: { ...project } }"
+      v-for="(project, index) in projects"
       :key="project.id"
-      :class="[`div${project.id}`, 'bcg']"
+      :class="[`div${index + 1}`, 'bcg']"
     >
       <div
         class="img"
@@ -17,7 +18,8 @@
         </h5>
         <h6>{{ project.category }}</h6>
       </div>
-    </div>
+    </router-link>
+
     <!-- <div class="div2 bcg">
       <div
         class="img"
@@ -111,6 +113,11 @@ export default {
   height: 13rem;
   border-radius: 200px;
   filter: grayscale(1);
+  transition: $animate;
+
+  &:hover {
+    filter: grayscale(0.2);
+  }
 }
 
 .txt {
