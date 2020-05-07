@@ -138,6 +138,7 @@ export default {
 p {
   font-family: futura-pt, sans-serif;
   color: var(--text-secondary);
+  font-size: 1.2rem;
 }
 
 .left {
@@ -162,6 +163,13 @@ p {
     height: auto;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  p,
+  h6 {
+    font-size: 2rem;
   }
 }
 </style>

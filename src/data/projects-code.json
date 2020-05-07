@@ -25,9 +25,7 @@
     "pageLink": "",
     "sourceLink": "",
     "imgCover": "",
-    "img1": "",
-    "img2": "",
-    "img3": ""
+    "images": []
   },
   {
     "id": 9,
@@ -39,9 +37,7 @@
     "pageLink": "",
     "sourceLink": "",
     "imgCover": "",
-    "img1": "",
-    "img2": "",
-    "img3": ""
+    "images": []
   },
   {
     "id": 10,
@@ -53,9 +49,7 @@
     "pageLink": "",
     "sourceLink": "",
     "imgCover": "",
-    "img1": "",
-    "img2": "",
-    "img3": ""
+    "images": []
   },
   {
     "id": 11,
@@ -67,9 +61,7 @@
     "pageLink": "",
     "sourceLink": "",
     "imgCover": "",
-    "img1": "",
-    "img2": "",
-    "img3": ""
+    "images": []
   },
   {
     "id": 12,
@@ -81,8 +73,6 @@
     "pageLink": "",
     "sourceLink": "",
     "imgCover": "",
-    "img1": "",
-    "img2": "",
-    "img3": ""
+    "images": []
   }
 ]

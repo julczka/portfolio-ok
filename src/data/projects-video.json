@@ -7,9 +7,11 @@
     "myRole": "I was responsible for screenpay, casting and directing the film",
     "videoSrc": "https://player.vimeo.com/video/415426206",
     "imgCover": "projects/video/1/mirka.png",
-    "img1": "",
-    "img2": "",
-    "img3": ""
+    "images": [
+      "projects/video/1/mirka10-min.jpg",
+      "projects/video/1/mirka20-min.jpg",
+      "projects/video/1/mirka30-min.jpg"
+    ]
   },
   {
     "id": 2,
@@ -19,9 +21,11 @@
     "myRole": "I was responsible for screenplay and directing both live-action and animated sequences",
     "videoSrc": "https://player.vimeo.com/video/415425028",
     "imgCover": "projects/video/2/omnis10-min.jpg",
-    "img1": "projects/video/2/omnis20-min.jpg",
-    "img2": "projects/video/2/omnis30-min.jpg",
-    "img3": ""
+    "images": [
+      "projects/video/2/omnis20-min.jpg",
+      "projects/video/2/omnis30-min.jpg",
+      "projects/video/2/omnis10-min.jpg"
+    ]
   },
   {
     "id": 3,
@@ -45,9 +49,11 @@
     "myRole": "I was responsible for screenplay, casting and directing the film",
     "videoSrc": "https://player.vimeo.com/video/415424742",
     "imgCover": "projects/video/4/Elektromobil40-min.jpg",
-    "img1": "projects/video/4/Elektromobil0-min.jpg",
-    "img2": "projects/video/4/Elektromobil20-min.jpg",
-    "img3": "projects/video/4/Elektromobil30-min.jpg"
+    "images": [
+      "projects/video/4/Elektromobil0-min.jpg",
+      "projects/video/4/Elektromobil20-min.jpg",
+      "projects/video/4/Elektromobil30-min.jpg"
+    ]
   },
   {
     "id": 5,
@@ -57,9 +63,11 @@
     "myRole": "I was responsible for screenplay, casting and directing the film",
     "videoSrc": "https://player.vimeo.com/video/415158120",
     "imgCover": "projects/video/5/ozon-stom0-min.jpg",
-    "img1": "projects/video/5/ozon-stom20-min.jpg",
-    "img2": "projects/video/5/ozon-stom30-min.jpg",
-    "img3": "projects/video/5/ozon-stom40-min.jpg"
+    "images": [
+      "projects/video/5/ozon-stom20-min.jpg",
+      "projects/video/5/ozon-stom30-min.jpg",
+      "projects/video/5/ozon-stom40-min.jpg"
+    ]
   },
   {
     "id": 6,
@@ -69,8 +77,10 @@
     "myRole": "I was responsible for screenplay, casting and directing the film",
     "videoSrc": "https://player.vimeo.com/video/415424870",
     "imgCover": "projects/video/6/wyscig10-min.jpg",
-    "img1": "projects/video/6/wyscig20-min.jpg",
-    "img2": "projects/video/6/wyscig30-min.jpg",
-    "img3": "projects/video/6/wyscig40-min.jpg"
+    "images": [
+      "projects/video/6/wyscig20-min.jpg",
+      "projects/video/6/wyscig30-min.jpg",
+      "projects/video/6/wyscig40-min.jpg"
+    ]
   }
 ]
