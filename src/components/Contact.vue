@@ -35,24 +35,24 @@
 </template>
 
 <script>
-import emailjs from "emailjs-com";
+import emailjs from 'emailjs-com';
 
 export default {
   methods: {
     sendEmail: (e) => {
       emailjs
         .sendForm(
-          "gmail",
-          "template_9o9Wvvjt",
+          'gmail',
+          'template_9o9Wvvjt',
           e.target,
-          "user_GPJS6w6VSmdqBtVMHlT8g"
+          'user_GPJS6w6VSmdqBtVMHlT8g'
         )
         .then(
           (result) => {
-            console.log("SUCCESS!", result.status, result.text);
+            console.log('SUCCESS!', result.status, result.text);
           },
           (error) => {
-            console.log("FAILED...", error);
+            console.log('FAILED...', error);
           }
         );
     },
@@ -76,6 +76,7 @@ export default {
     font-size: 1.5rem;
     font-family: $futura;
     padding: 0.3em;
+    resize: none;
   }
 
   .form-style::placeholder {

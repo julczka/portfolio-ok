@@ -6,10 +6,8 @@
     "description": "",
     "myRole": "",
     "videoSrc": "",
-    "imgCover": "",
-    "img1": "",
-    "img2": "",
-    "img3": ""
+    "imgCover": "projects/code/1/planX1.jpg",
+    "images": ["", "", ""]
   },
   {
     "id": 8,

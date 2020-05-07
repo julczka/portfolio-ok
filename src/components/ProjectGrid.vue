@@ -1,26 +1,32 @@
 <template>
   <div class="parent">
-    <router-link
-      :to="{ name: 'ProjectDetails', params: { ...project } }"
+    <div
       v-for="(project, index) in projects"
       :key="project.id"
       :class="[`div${index + 1}`, 'bcg']"
     >
-      <div
-        v-if="project.imgCover"
-        class="img"
-        :style="{
-          'background-image':
-            'url(' + require(`../assets/${project.imgCover}`) + ')',
-        }"
-      ></div>
-      <div class="txt">
-        <h5>
-          {{ project.projectTitle }}
-        </h5>
-        <h6>{{ project.category }}</h6>
-      </div>
-    </router-link>
+      <router-link
+        v-if="project.projectTitle"
+        :to="{ name: 'ProjectDetails', params: { ...project } }"
+        :class="[`div${index + 1}`, 'bcg']"
+      >
+        <div
+          v-if="project.imgCover"
+          class="img"
+          :style="{
+            'background-image':
+              'url(' + require(`../assets/${project.imgCover}`) + ')',
+          }"
+        ></div>
+        <div v-else class="img"></div>
+        <div class="txt">
+          <h5>
+            {{ project.projectTitle }}
+          </h5>
+          <h6>{{ project.category }}</h6>
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -71,6 +77,11 @@ export default {
     filter: grayscale(0.2);
     transform: scale(1.05);
   }
+
+  &:hover + .txt {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .txt {
@@ -79,8 +90,9 @@ export default {
   @include flex-center();
   flex-direction: column;
   transition: $animate;
+  opacity: 0.3;
   &:hover {
-    transform: scale(1.05);
+    opacity: 1;
   }
 }
 
