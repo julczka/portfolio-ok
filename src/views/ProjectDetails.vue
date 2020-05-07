@@ -4,6 +4,7 @@
       <div class="gallery-container">
         <div class="image" v-if="currentProject.videoSrc">
           <iframe
+            v-if="currentProject.videoSrc"
             :src="currentProject.videoSrc"
             frameborder="0"
             allow="autoplay; fullscreen"
@@ -13,6 +14,13 @@
             style="position:absolute; top:0; left: 0"
           ></iframe>
         </div>
+        <img
+          v-else
+          :src="require(`../assets/${currentProject.imgCover}`)"
+          alt=""
+          srcset=""
+          width="100%"
+        />
       </div>
 
       <div class="text left ">
