@@ -31,9 +31,11 @@
     "myRole": "I was responsible for screenplay and directing the infomercial",
     "videoSrc": "https://player.vimeo.com/video/415424918",
     "imgCover": "projects/video/3/Polona_2miliony40-min.jpg",
-    "img1": "projects/video/3/Polona_2miliony0-min.jpg",
-    "img2": "projects/video/3/Polona_2miliony20-min.jpg",
-    "img3": "projects/video/3/Polona_2miliony30-min.jpg"
+    "images": [
+      "projects/video/3/Polona_2miliony0-min.jpg",
+      "projects/video/3/Polona_2miliony20-min.jpg",
+      "projects/video/3/Polona_2miliony30-min.jpg"
+    ]
   },
   {
     "id": 4,
@@ -49,7 +51,7 @@
   },
   {
     "id": 5,
-    "projectTitle": "Ozone therapy for stomatology",
+    "projectTitle": "Ozone therapy for dentistry",
     "category": "Infomercial",
     "description": "Film was created for polish company Metrum Cryoflex, constructors of first complex system for ozone therapy in dentistry",
     "myRole": "I was responsible for screenplay, casting and directing the film",

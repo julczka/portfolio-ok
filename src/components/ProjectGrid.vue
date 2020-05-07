@@ -75,7 +75,7 @@ export default {
 
   &:hover {
     filter: grayscale(0.2);
-    transform: scale(1.05);
+    // transform: scale(1.05);
   }
 
   &:hover + .txt {
