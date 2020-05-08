@@ -45,18 +45,17 @@
 
     <h2 id="resume">What I was doing untill now</h2>
     <TimelineDetection />
-    <div class="fill"></div>
+
     <h2 id="contact">Contact me</h2>
     <Contact />
-    <div class="fill"></div>
   </div>
 </template>
 
 <script>
-import SkillsGrid from "../components/SkillsGrid";
-import VideoPlayer from "../components/VideoPlayer";
-import TimelineDetection from "../components/TimelineDetection";
-import Contact from "../components/Contact";
+import SkillsGrid from '../components/SkillsGrid';
+import VideoPlayer from '../components/VideoPlayer';
+import TimelineDetection from '../components/TimelineDetection';
+import Contact from '../components/Contact';
 
 export default {
   components: {
@@ -84,8 +83,8 @@ export default {
         },
         sources: [
           {
-            src: require("../assets/julia_krysytyna_gruszczynska.mp4"),
-            type: "video/mp4",
+            src: require('../assets/julia_krysytyna_gruszczynska.mp4'),
+            type: 'video/mp4',
           },
         ],
       },
@@ -95,7 +94,7 @@ export default {
 
   methods: {
     playing() {
-      console.log(" we are watching!!!");
+      console.log(' we are watching!!!');
     },
   },
 
@@ -104,11 +103,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fill {
-  height: 100px;
-}
-// @import "@/styles/_video.scss";
-// $pink-light-hex: #f23558;
 .about {
   width: 100%;
 
@@ -128,7 +122,6 @@ export default {
 .about-row {
   @include flex-center();
   margin: 1rem 3rem 5rem 3rem;
-  // height: calc(100vh - 18 rem);
 
   h4,
   h5 {
@@ -143,6 +136,10 @@ export default {
     color: var(--text-secondary);
   }
 }
+
+#contact {
+  margin: 5rem 0 0 0;
+}
 .about-col {
   display: flex;
 
@@ -156,7 +153,7 @@ export default {
     filter: grayscale(1);
     width: 23rem;
     height: 23rem;
-    background-image: url("../assets/about-ME.jpg");
+    background-image: url('../assets/about-ME.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -177,17 +174,14 @@ export default {
   }
 }
 
-@import "../styles/_jello-keyframes.scss";
+@import '../styles/_jello-keyframes.scss';
 
 .col1 {
-  // flex: 1 1 20em;
-
   align-items: center;
   justify-content: space-between;
   padding-right: 3em;
 }
 .col2 {
-  // flex: 1 2 20em;
   align-items: flex-start;
   justify-content: space-between;
   padding-left: 3em;

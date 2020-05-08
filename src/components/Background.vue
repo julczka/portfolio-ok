@@ -232,9 +232,9 @@
 </template>
 
 <script>
-import gsap from "gsap";
+import gsap from 'gsap';
 export default {
-  name: "Background",
+  name: 'Background',
   props: {
     height: { type: Number },
     dark: { type: Boolean },
@@ -277,7 +277,7 @@ export default {
   methods: {
     animate: function() {
       this.layoutAnimation.fromTo(
-        "#circle_right",
+        '#circle_right',
         10,
         { scale: 1, x: 0 },
         {
@@ -285,14 +285,14 @@ export default {
           x: 100,
           repeat: -1,
           repeatDelay: 0,
-          ease: "sine.inOut",
+          ease: 'sine.inOut',
           yoyo: true,
-          transformOrigin: "center center",
+          transformOrigin: 'center center',
           immediateRender: true,
         }
       );
       this.layoutAnimation.fromTo(
-        "#circle_left",
+        '#circle_left',
         6,
         { scale: 1, x: 0 },
         {
@@ -300,45 +300,45 @@ export default {
           x: -100,
           repeat: -1,
           repeatDelay: 0,
-          ease: "sine.inOut",
+          ease: 'sine.inOut',
           yoyo: true,
-          transformOrigin: "center center",
+          transformOrigin: 'center center',
           immediateRender: true,
         }
       );
 
       this.layoutAnimation.fromTo(
-        "#ellipse_upper",
+        '#ellipse_upper',
         15,
         { scale: 1 },
         {
           scale: 1.2,
           repeat: -1,
           repeatDelay: 0,
-          ease: "expo.inOut",
+          ease: 'expo.inOut',
           yoyo: true,
-          transformOrigin: "center center",
+          transformOrigin: 'center center',
           immediateRender: true,
         }
       );
 
       this.layoutAnimation.fromTo(
-        "#circle_central",
+        '#circle_central',
         10,
         { scale: 1 },
         {
           scale: 1.1,
           repeat: -1,
           repeatDelay: 0,
-          ease: "expo.inOut",
+          ease: 'expo.inOut',
           yoyo: true,
-          transformOrigin: "center center",
+          transformOrigin: 'center center',
           immediateRender: true,
         }
       );
 
       this.layoutAnimation.play();
-      console.log("background animation");
+      // console.log('background animation');
     },
 
     enter(el, done) {
@@ -349,7 +349,7 @@ export default {
           opacity: 1,
           scale: 1,
           duration: 0.7,
-          ease: "back.inOut(3)",
+          ease: 'back.inOut(3)',
 
           onComplete: done,
         }
@@ -364,7 +364,7 @@ export default {
           opacity: 0,
           scale: 0,
           duration: 0.7,
-          ease: "back.inOut(3)",
+          ease: 'back.inOut(3)',
           onComplete: done,
         }
       );
@@ -372,18 +372,17 @@ export default {
   },
 
   watch: {
-    dark: function(newVal, oldVal) {
-      if (newVal === true || oldVal === false) {
-        // this.backgroundTween.play();
-
-        console.log("this is dark");
-      } else {
-        // this.backgroundTween.reverse(0).play();
-        console.log("this is light");
-      }
-      // this.backgroundTween.reversed(!this.backgroundTween.reversed());
-      console.log("Prop changed: ", newVal, " | was: ", oldVal, "animation");
-    },
+    // dark: function(newVal, oldVal) {
+    //   if (newVal === true || oldVal === false) {
+    //     // this.backgroundTween.play();
+    //     console.log('this is dark');
+    //   } else {
+    //     // this.backgroundTween.reverse(0).play();
+    //     console.log('this is light');
+    //   }
+    //   // this.backgroundTween.reversed(!this.backgroundTween.reversed());
+    //   console.log('Prop changed: ', newVal, ' | was: ', oldVal, 'animation');
+    // },
   },
 
   mounted() {
@@ -392,11 +391,11 @@ export default {
     window.onresize = () => {
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
-      if (this.windowWidth / this.windowHeight < 1) {
-        console.log("ratio < 1");
-      } else if (this.windowWidth / this.windowHeight === 1)
-        console.log("component updated");
-      else console.log("ratio > 1");
+      // if (this.windowWidth / this.windowHeight < 1) {
+      //   console.log("ratio < 1");
+      // } else if (this.windowWidth / this.windowHeight === 1)
+      //   console.log("component updated");
+      // else console.log("ratio > 1");
     };
   },
 };

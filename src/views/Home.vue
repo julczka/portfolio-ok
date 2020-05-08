@@ -98,12 +98,6 @@ export default {
   color: var(--text-primary);
 }
 
-// @media screen and (max-width: 375px) {
-//   .link {
-//     font-size: 1.8rem;
-//   }
-// }
-
 @media screen and (max-aspect-ratio: 1/1) {
   .home {
     align-self: flex-start;

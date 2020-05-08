@@ -66,8 +66,9 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60vw;
+  width: 100vw;
   height: 60vh;
+  margin-bottom: 5rem;
 
   .form-style {
     border: 1px solid var(--text-primary);
@@ -77,6 +78,7 @@ export default {
     font-family: $futura;
     padding: 0.3em;
     resize: none;
+    width: 70%;
   }
 
   .form-style::placeholder {
@@ -103,7 +105,7 @@ export default {
 
 .row {
   display: flex;
-  width: 50%;
+  width: 80%;
   align-items: center;
   justify-content: space-between;
   margin: 1em 0;
