@@ -11,24 +11,24 @@
 </template>
 
 <script>
-import SimpleIcon from "../components/icons/SimpleIcon";
+import SimpleIcon from '../components/icons/SimpleIcon';
 export default {
-  name: "Skill",
+  name: 'Skill',
   props: {
     name: {
-      type: String
+      type: String,
     },
     icon: {
-      type: String
+      type: String,
     },
     awesome: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
 
   components: {
-    SimpleIcon
-  }
+    SimpleIcon,
+  },
 };
 </script>
 
@@ -40,6 +40,11 @@ export default {
   background: $simplegradient;
   box-sizing: content-box;
   margin: 1em;
+  transition: $animate;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &__ico {
     color: var(--text-primary);
@@ -68,12 +73,5 @@ export default {
     width: 130%;
     color: var(--text-secondary);
   }
-
-  //   .psd {
-  //     // fill: var(--text-primary);
-  //     background-image: url("../assets/skills_ico/iconfinder_logo_brand_brands_logos_adobe_photoshop_1907196.svg");
-  //     height: 1.8em;
-  //     width: 1.8em;
-  //   }
 }
 </style>

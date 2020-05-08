@@ -220,6 +220,7 @@ html {
   padding: 1em 1em;
   position: fixed;
   right: 0;
+  cursor: pointer;
 }
 
 #homeButton {
