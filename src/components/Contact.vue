@@ -31,20 +31,30 @@
       <input class="button" type="reset" value="Clear" />
       <input class="button" type="submit" value="Send" />
     </div>
-    <!-- <div class="modal succes" v-if="success">
-      <i class="far fa-smile"></i>
-      <h4>Message sent</h4>
-    </div>
 
-    <div class="modal fail" v-if="fail">
+    <transition
+      v-on:enter="enter"
+      v-on:before-leave="beforeLeave"
+      v-on:leave="leave"
+    >
+      <div class="modal success" v-if="success" @click="success = false">
+        <i class="far fa-smile"></i>
+        <h4>Message sent</h4>
+        <p>Click me to close</p>
+      </div>
+    </transition>
+
+    <div class="modal fail" v-if="fail" @click="fail = false">
       <i class="far fa-sad-tear"></i>
       <h4>Something went wrong</h4>
-    </div> -->
+      <p>Click me to close</p>
+    </div>
   </form>
 </template>
 
 <script>
 import emailjs from 'emailjs-com';
+import gsap from 'gsap';
 
 export default {
   data() {
@@ -55,7 +65,27 @@ export default {
   },
 
   methods: {
-    sendEmail: (e) => {
+    enter(el, done) {
+      gsap.fromTo(
+        el,
+        { scale: 0 },
+        { scale: 1, duration: 0.5, ease: 'back.out(1.7)', onComplete: done }
+      );
+    },
+
+    leave(el, done) {
+      gsap.fromTo(
+        el,
+        { scale: 1 },
+        { scale: 0, duration: 0.5, ease: 'back.in(1.7)', onComplete: done }
+      );
+    },
+
+    sayHello() {
+      console.log('hello');
+    },
+
+    sendEmail: function(e) {
       emailjs
         .sendForm(
           'gmail',
@@ -65,12 +95,11 @@ export default {
         )
         .then(
           (result) => {
-            alert('Message sent');
-
+            this.success = true;
             console.log('SUCCESS!', result.status, result.text);
           },
           (error) => {
-            alert('Something went wrong, try again');
+            this.fail = true;
             console.log('FAILED...', error);
           }
         );
@@ -95,6 +124,11 @@ export default {
   .fa-smile,
   .fa-sad-tear {
     font-size: 6rem;
+  }
+
+  p {
+    font-family: $futura;
+    font-weight: 100;
   }
 }
 
