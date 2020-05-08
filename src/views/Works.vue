@@ -1,19 +1,39 @@
 <template>
   <div class="work">
-    <div class="fill">
-      here something will go
+    <div class="opening-row ">
+      <div class="link underline" @click="smoothScroll('#video', 0.6)">
+        <div class="img" ref="hover1"></div>
+        <div class="name hover hover-3">
+          Video
+        </div>
+      </div>
+
+      <div class="link underline" @click="smoothScroll('#code', 1)">
+        <div class="img " ref="hover2"></div>
+        <div class="name hover hover-3">
+          Code
+        </div>
+      </div>
+
+      <div class="link underline" @click="smoothScroll('#design', 1.4)">
+        <div class="img " ref="hover3"></div>
+        <div class="name hover hover-3">
+          Design
+        </div>
+      </div>
     </div>
+
     <div class="sticky-control">
       <div class="sticky-indicator">
-        <div class="page-position" @click="smoothScroll('#video')">
+        <div class="page-position" @click="smoothScroll('#video', 1)">
           video
           <div class="line" id="line-video"></div>
         </div>
-        <div class="page-position" @click="smoothScroll('#code')">
+        <div class="page-position" @click="smoothScroll('#code', 1)">
           code
           <div class="line" id="line-code"></div>
         </div>
-        <div class="page-position" @click="smoothScroll('#design')">
+        <div class="page-position" @click="smoothScroll('#design', 1)">
           design
           <div class="line" id="line-design"></div>
         </div>
@@ -64,6 +84,8 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 gsap.registerPlugin(ScrollToPlugin);
 
+import hoverEffect from 'hover-effect';
+
 export default {
   components: {
     ProjectGrid,
@@ -74,16 +96,13 @@ export default {
       videoProjects: ProjectsVideo,
       codeProjects: ProjectsCode,
       designProjects: ProjectsDesign,
-      msg: 'I will change',
-      msg2: 'I will change',
-      msg3: 'I will change',
     };
   },
 
   methods: {
-    smoothScroll(el) {
+    smoothScroll(el, duration) {
       gsap.to(window, {
-        duration: 1,
+        duration: duration,
         scrollTo: { y: el, offsetY: 55 },
         ease: 'power2',
       });
@@ -97,13 +116,45 @@ export default {
       });
     },
   },
+
+  mounted() {
+    new hoverEffect({
+      parent: this.$refs.hover1,
+      intensity1: 0.1,
+      intensity2: 0.1,
+      angle2: Math.PI / 2,
+      image1: require('../assets/projects/video/2/omnis10-min.jpg'),
+      image2: require('../assets/projects/video/2/omnis30-min.jpg'),
+      displacementImage: require('../assets/BubblesTexture.png'),
+      easing: 'slow',
+    });
+
+    new hoverEffect({
+      parent: this.$refs.hover2,
+      intensity1: 0.1,
+      intensity2: 0.1,
+      angle2: Math.PI / 2,
+      image1: require('../assets/projects/video/2/omnis10-min.jpg'),
+      image2: require('../assets/projects/video/2/omnis30-min.jpg'),
+      displacementImage: require('../assets/BubblesTexture.png'),
+      easing: 'slow',
+    });
+
+    new hoverEffect({
+      parent: this.$refs.hover3,
+      intensity1: 0.1,
+      intensity2: 0.1,
+      angle2: Math.PI / 2,
+      image1: require('../assets/projects/video/2/omnis10-min.jpg'),
+      image2: require('../assets/projects/video/2/omnis30-min.jpg'),
+      displacementImage: require('../assets/BubblesTexture.png'),
+      easing: 'slow',
+    });
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.fill {
-  height: 100vh;
-}
 .work {
   width: 100%;
 
@@ -118,12 +169,58 @@ export default {
   }
 }
 
+.opening-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: calc(100vh - 2em);
+  width: 100%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  font-size: 3rem;
+  margin: 0.5em 0;
+}
+
+.link:nth-child(2) {
+  flex-direction: column-reverse;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 200px;
+  filter: grayscale(1);
+  width: 6.5em;
+  height: 6.5em;
+  transition: $animate;
+
+  &:hover {
+    filter: grayscale(0.2);
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0.5em 0;
+  color: var(--text-primary);
+}
+
 .sticky-control {
   position: relative;
 }
 
 .sticky-indicator {
-  position: fixed;
+  position: sticky;
   top: 10rem;
   left: 2rem;
   width: 10%;
@@ -194,6 +291,14 @@ export default {
 @media screen and (max-aspect-ratio: 1/1) {
   .work-row {
     justify-content: center;
+  }
+
+  .opening-row {
+    flex-direction: column;
+  }
+
+  .link:nth-child(2) {
+    flex-direction: column;
   }
 }
 </style>
