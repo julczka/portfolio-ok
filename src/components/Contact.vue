@@ -27,10 +27,19 @@
         placeholder="Hello!"
       ></textarea>
     </div>
-    <div class="row">
+    <div class="row--button">
       <input class="button" type="reset" value="Clear" />
       <input class="button" type="submit" value="Send" />
     </div>
+    <!-- <div class="modal succes" v-if="success">
+      <i class="far fa-smile"></i>
+      <h4>Message sent</h4>
+    </div>
+
+    <div class="modal fail" v-if="fail">
+      <i class="far fa-sad-tear"></i>
+      <h4>Something went wrong</h4>
+    </div> -->
   </form>
 </template>
 
@@ -38,6 +47,13 @@
 import emailjs from 'emailjs-com';
 
 export default {
+  data() {
+    return {
+      success: false,
+      fail: false,
+    };
+  },
+
   methods: {
     sendEmail: (e) => {
       emailjs
@@ -49,9 +65,12 @@ export default {
         )
         .then(
           (result) => {
+            alert('Message sent');
+
             console.log('SUCCESS!', result.status, result.text);
           },
           (error) => {
+            alert('Something went wrong, try again');
             console.log('FAILED...', error);
           }
         );
@@ -61,12 +80,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.modal {
+  position: absolute;
+  background-color: var(--bg-secondary);
+  width: 23rem;
+  height: 23rem;
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(----text-primary);
+
+  .fa-smile,
+  .fa-sad-tear {
+    font-size: 6rem;
+  }
+}
+
 .contact-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 80vw;
   height: 60vh;
   margin-bottom: 5rem;
 
@@ -105,9 +143,13 @@ export default {
 
 .row {
   display: flex;
-  width: 80%;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   margin: 1em 0;
+
+  &--button {
+    align-self: flex-end;
+  }
 }
 </style>
