@@ -2,7 +2,7 @@
   <div class="home">
     <router-link to="/Works">
       <div class="link underline">
-        <div class="img"></div>
+        <div class="img" ref="hoverWorks"></div>
         <div class="name hover hover-3">
           Works
         </div>
@@ -11,7 +11,7 @@
 
     <router-link to="/About">
       <div class="link underline">
-        <div class="img img_about"></div>
+        <div class="img img_about" ref="hoverAbout"></div>
         <div class="name hover hover-3">
           About me
         </div>
@@ -21,28 +21,32 @@
 </template>
 
 <script>
-// import gsap from "gsap";
-
+import hoverEffect from 'hover-effect';
 export default {
   name: 'Home',
   components: {},
-
   mounted() {
-    // gsap.fromTo(
-    //   ".img",
-    //   10,
-    //   { scale: 1 },
-    //   {
-    //     scale: 1.1,
-    //     repeat: -1,
-    //     stagger: 0.5,
-    //     repeatDelay: 0,
-    //     ease: "power1.inOut",
-    //     yoyo: true,
-    //     transformOrigin: "center center",
-    //     immediateRender: true
-    //   }
-    // );
+    new hoverEffect({
+      parent: this.$refs.hoverAbout,
+      intensity1: 0.1,
+      intensity2: 0.1,
+      angle2: Math.PI / 2,
+      image1: require('../assets/hovers/hover-img-video/about-hover2-min.jpg'),
+      image2: require('../assets/hovers/hover-img-video/about-hover1-min.jpg'),
+      displacementImage: require('../assets/bump22.png'),
+      easing: 'slow',
+    });
+
+    new hoverEffect({
+      parent: this.$refs.hoverWorks,
+      intensity1: 0.1,
+      intensity2: 0.1,
+      angle2: Math.PI / 2,
+      image1: require('../assets/hovers/hover-img-video/planxl-hov2.jpg'),
+      image2: require('../assets/hovers/hover-img-video/elektro3-1 copy.jpg'),
+      displacementImage: require('../assets/bump22.png'),
+      easing: 'slow',
+    });
   },
 };
 </script>
@@ -81,14 +85,8 @@ export default {
   filter: grayscale(1);
   width: 6.5em;
   height: 6.5em;
-  background-image: url('../assets/mirka.png');
-  background-size: cover;
-  background-position: center;
-  transition: $animate;
 
-  &_about {
-    background-image: url('../assets/about-ME.jpg');
-  }
+  transition: $animate;
 }
 
 .name {
