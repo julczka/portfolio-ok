@@ -51,6 +51,12 @@
           :loop="true"
           :navigationEnabled="true"
           :autoplayTimeout="3000"
+          navigationNextLabel=">"
+          navigationPrevLabel="<"
+          paginationPosition="bottom-overlay"
+          paginationActiveColor="#f23558"
+          :adjustableHeight="true"
+          :adjustableHeightEasing="ease"
         >
           <slide v-for="(image, index) in images" :key="index">
             <img

@@ -3,7 +3,8 @@
     <h1>About me</h1>
     <div class="about-row">
       <div class="about-col col1">
-        <div class="about-col__img"></div>
+        <div class="about-col__img img" ref="hoverMe"></div>
+
         <div class="about-col__socico">
           <a href="https://github.com/julczka" target="_blank"
             ><i class="fab fa-github "></i
@@ -56,6 +57,7 @@ import SkillsGrid from '../components/SkillsGrid';
 import VideoPlayer from '../components/VideoPlayer';
 import TimelineDetection from '../components/TimelineDetection';
 import Contact from '../components/Contact';
+import hoverEffect from 'hover-effect';
 
 export default {
   components: {
@@ -98,7 +100,18 @@ export default {
     },
   },
 
-  mounted() {},
+  mounted() {
+    new hoverEffect({
+      parent: this.$refs.hoverMe,
+      intensity1: 0.1,
+      intensity2: 0.1,
+      angle2: Math.PI / 2,
+      image1: require('../assets/hovers/hover-img-video/aboutMehover1.jpg'),
+      image2: require('../assets/hovers/hover-img-video/aboutMehover2.jpg'),
+      displacementImage: require('../assets/bump22.png'),
+      easing: 'slow',
+    });
+  },
 };
 </script>
 
@@ -153,7 +166,7 @@ export default {
     filter: grayscale(1);
     width: 23rem;
     height: 23rem;
-    background-image: url('../assets/about-ME.jpg');
+    // background-image: url('../assets/about-ME.jpg');
     background-size: cover;
     background-position: center;
   }
