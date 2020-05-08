@@ -1,17 +1,17 @@
 <template>
   <div class="work">
     <div class="opening-row ">
-      <div class="link underline" @click="smoothScroll('#video', 0.6)">
-        <div class="img" ref="hover1"></div>
-        <div class="name hover hover-3">
-          Video
-        </div>
-      </div>
-
       <div class="link underline" @click="smoothScroll('#code', 1)">
         <div class="img " ref="hover2"></div>
         <div class="name hover hover-3">
           Code
+        </div>
+      </div>
+
+      <div class="link underline" @click="smoothScroll('#video', 0.6)">
+        <div class="img" ref="hover1"></div>
+        <div class="name hover hover-3">
+          Video
         </div>
       </div>
 
