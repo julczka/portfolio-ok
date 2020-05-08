@@ -1,5 +1,5 @@
 <template>
-  <form class="contact-form" @submit.prevent="sendEmail">
+  <form class="contact-form" ref="contactForm" @submit.prevent="sendEmail">
     <div class="row">
       <label>Name</label>
       <input
@@ -92,6 +92,8 @@ export default {
         .then(
           (result) => {
             this.success = true;
+            let form = this.$refs.contactForm;
+            form.reset();
             console.log('SUCCESS!', result.status, result.text);
           },
           (error) => {
