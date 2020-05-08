@@ -123,9 +123,9 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/projects/video/2/omnis10-min.jpg'),
-      image2: require('../assets/projects/video/2/omnis30-min.jpg'),
-      displacementImage: require('../assets/BubblesTexture.png'),
+      image1: require('../assets/hovers/hover-img-video/elektro3-1 copy.jpg'),
+      image2: require('../assets/hovers/hover-img-video/wyscig30.jpg'),
+      displacementImage: require('../assets/bump22.png'),
       easing: 'slow',
     });
 
@@ -134,9 +134,9 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/projects/video/2/omnis10-min.jpg'),
-      image2: require('../assets/projects/video/2/omnis30-min.jpg'),
-      displacementImage: require('../assets/BubblesTexture.png'),
+      image1: require('../assets/hovers/hover-img-video/planxlap3d-hov.jpg'),
+      image2: require('../assets/hovers/hover-img-video/planxl-hov2.jpg'),
+      displacementImage: require('../assets/bump22.png'),
       easing: 'slow',
     });
 
@@ -145,9 +145,9 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/projects/video/2/omnis10-min.jpg'),
-      image2: require('../assets/projects/video/2/omnis30-min.jpg'),
-      displacementImage: require('../assets/BubblesTexture.png'),
+      image1: require('../assets/hovers/hover-img-video/krise3-hov.png'),
+      image2: require('../assets/hovers/hover-img-video/outsbjerg_mock.jpg'),
+      displacementImage: require('../assets/bump22.png'),
       easing: 'slow',
     });
   },
@@ -204,13 +204,17 @@ export default {
   &:hover {
     filter: grayscale(0.2);
   }
+
+  &:hover + .name {
+    transform: scale(1.1);
+  }
 }
 
 .name {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  transition: $animate;
   margin: 0.5em 0;
   color: var(--text-primary);
 }
