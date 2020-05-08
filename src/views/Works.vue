@@ -155,6 +155,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/_line-hover.scss';
 .work {
   width: 100%;
 

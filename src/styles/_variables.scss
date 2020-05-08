@@ -26,4 +26,9 @@ $bcg-gradient: linear-gradient(
   var(--gradient-accent-rgba) 100%
 );
 
+$rad-gradient: radial-gradient(
+  var(--bg-primary) 30%,
+  var(--gradient-accent-rgba) 100%
+);
+
 $futura: futura-pt, sans-serif;

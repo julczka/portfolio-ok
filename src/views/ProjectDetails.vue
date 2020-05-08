@@ -45,7 +45,13 @@
 
     <div class="details-row">
       <div class="carousel-container">
-        <carousel :perPage="1" :autoplay="true" :navigationEnabled="true">
+        <carousel
+          :perPage="1"
+          :autoplay="true"
+          :loop="true"
+          :navigationEnabled="true"
+          :autoplayTimeout="3000"
+        >
           <slide v-for="(image, index) in images" :key="index">
             <img
               :src="require(`../assets/${image}`)"

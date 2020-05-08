@@ -32,21 +32,17 @@
       <input class="button" type="submit" value="Send" />
     </div>
 
-    <transition
-      v-on:enter="enter"
-      v-on:before-leave="beforeLeave"
-      v-on:leave="leave"
-    >
+    <transition v-on:enter="enter" v-on:leave="leave">
       <div class="modal success" v-if="success" @click="success = false">
         <i class="far fa-smile"></i>
-        <h4>Message sent</h4>
+        <h4>Message sent!</h4>
         <p>Click me to close</p>
       </div>
     </transition>
 
     <div class="modal fail" v-if="fail" @click="fail = false">
-      <i class="far fa-sad-tear"></i>
-      <h4>Something went wrong</h4>
+      <i class="far fa-frown"></i>
+      <h4>Something went wrong...</h4>
       <p>Click me to close</p>
     </div>
   </form>
@@ -111,9 +107,9 @@ export default {
 <style lang="scss" scoped>
 .modal {
   position: absolute;
-  background-color: var(--bg-secondary);
-  width: 23rem;
-  height: 23rem;
+  background: $rad-gradient;
+  width: 25rem;
+  height: 25rem;
   border-radius: 200px;
   display: flex;
   align-items: center;
@@ -122,13 +118,15 @@ export default {
   color: var(----text-primary);
 
   .fa-smile,
-  .fa-sad-tear {
+  .fa-frown {
     font-size: 6rem;
+    color: var(--text-secondary);
   }
 
   p {
     font-family: $futura;
     font-weight: 100;
+    color: var(--text-secondary);
   }
 }
 
