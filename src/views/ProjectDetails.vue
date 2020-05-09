@@ -72,6 +72,9 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
+import ProjectsVideo from '../data/projects-video.json';
+import ProjectsCode from '../data/projects-code.json';
+import ProjectsDesign from '../data/projects-design.json';
 
 export default {
   components: {
@@ -81,7 +84,9 @@ export default {
   data() {
     return {
       projectId: this.$route.params.id,
-      currentProject: this.$route.params,
+      currentProject: ProjectsVideo.filter(p => p.id == this.$route.params.id).pop()
+                    || ProjectsCode.filter(p => p.id == this.$route.params.id).pop()
+                  || ProjectsDesign.filter(p => p.id == this.$route.params.id).pop(),
       images: this.$route.params.images,
     };
   },
