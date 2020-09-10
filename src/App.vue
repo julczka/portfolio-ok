@@ -41,32 +41,32 @@
 </template>
 
 <script>
-import gsap from 'gsap';
+import gsap from "gsap";
 
-import Navigation from '../src/components/Navigation';
-import Background from '../src/components/Background';
+import Navigation from "../src/components/Navigation";
+import Background from "../src/components/Background";
 
 export default {
   components: {
     Navigation: Navigation,
-    Background: Background,
+    Background: Background
   },
   data() {
     return {
       darkMode: false,
       height: 0,
-      darkModeTween: new gsap.timeline({ paused: true }),
+      darkModeTween: new gsap.timeline({ paused: true })
     };
   },
 
   watch: {
     $route() {
-      console.log('route switched');
+      console.log("route switched");
       this.$nextTick(() => {
         this.height = this.$el.scrollHeight;
         console.log(this.$el.scrollHeight, this.height);
       });
-    },
+    }
   },
 
   methods: {
@@ -82,8 +82,8 @@ export default {
           opacity: 1,
 
           duration: 0.4,
-          ease: 'power(3)',
-          onComplete: done,
+          ease: "power(3)",
+          onComplete: done
         }
       );
     },
@@ -96,59 +96,59 @@ export default {
           opacity: 0,
           scale: 0.5,
           duration: 0.4,
-          ease: 'power(3)',
-          onComplete: done,
+          ease: "power(3)",
+          onComplete: done
         }
       );
-    },
+    }
   },
 
   mounted() {
     // var rule = CSSRulePlugin.getRule("#app:after");
 
-    this.darkModeTween.to('html', 0.5, {
-      '--text-primary': '#df485c',
-      ease: 'power4.out',
+    this.darkModeTween.to("html", 0.5, {
+      "--text-primary": "#df485c",
+      ease: "power4.out"
     });
 
-    this.darkModeTween.to('html', 1.4, {
-      '--bg-primary': '#202326',
-      ease: 'power4.out',
+    this.darkModeTween.to("html", 1.4, {
+      "--bg-primary": "#202326",
+      ease: "power4.out"
     });
 
     this.darkModeTween.to(
-      'html',
+      "html",
       0.5,
       {
-        '--gradient-bg-rgba': 'rgba(31, 35, 38, 0)',
-        ease: 'power4.out',
+        "--gradient-bg-rgba": "rgba(31, 35, 38, 0)",
+        ease: "power4.out"
       },
-      '<'
+      "<"
     );
 
     this.darkModeTween.to(
-      'html',
+      "html",
       0.5,
       {
-        '--gradient-accent-rgba': 'rgba(94, 46, 55, 1)',
-        ease: 'power4.out',
+        "--gradient-accent-rgba": "rgba(94, 46, 55, 1)",
+        ease: "power4.out"
       },
-      '<'
+      "<"
     );
 
-    this.darkModeTween.to('html', 0.5, {
-      '--bg-secondary': '#823541',
-      ease: 'power4.out',
+    this.darkModeTween.to("html", 0.5, {
+      "--bg-secondary": "#823541",
+      ease: "power4.out"
     });
 
     this.darkModeTween.to(
-      'html',
+      "html",
       0.5,
       {
-        '--text-secondary': '#d9d7d8',
-        ease: 'power4.out',
+        "--text-secondary": "#d9d7d8",
+        ease: "power4.out"
       },
-      '<'
+      "<"
     );
 
     this.darkModeTween.reverse();
@@ -162,7 +162,7 @@ export default {
     //   this.height = this.$el.scrollHeight;
     //   console.log(this.$el.scrollHeight, this.height);
     // });
-  },
+  }
 };
 </script>
 
@@ -324,7 +324,7 @@ h6 {
   font-size: 1rem;
   padding: 0.5em;
   min-width: 8em;
-  font-family: Arial, Helvetica, sans-serif;
+
   font-family: futura-pt, sans-serif;
   font-weight: 500;
   margin: 0.5em;
@@ -335,7 +335,7 @@ h6 {
   border-radius: 200px;
 }
 
-@import './styles/_jello-keyframes.scss';
+@import "./styles/_jello-keyframes.scss";
 
 @media only screen and (max-width: 374px) {
   :root {
