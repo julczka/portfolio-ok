@@ -85,7 +85,7 @@ export default {
         },
         sources: [
           {
-            src: require("../assets/julia_krysytyna_gruszczynska.mp4"),
+            src: require("../assets/julia-gruszczynska-cv.mp4"),
             type: "video/mp4"
           }
         ]

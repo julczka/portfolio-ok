@@ -29,14 +29,14 @@
   },
   {
     "id": 9,
-    "projectTitle": "",
-    "category": "",
-    "description": "",
-    "myRole": "",
+    "projectTitle": "Portfolio",
+    "category": "My personal webpage",
+    "description": "xxx",
+    "myRole": "xxx",
     "videoSrc": "",
     "pageLink": "",
     "sourceLink": "",
-    "imgCover": "",
+    "imgCover": "projects/code/3/portfolio-mock.png",
     "images": []
   },
   {
