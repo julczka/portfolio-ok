@@ -44,7 +44,7 @@
     <h2>What I can do for you</h2>
     <SkillsGrid id="skills" />
 
-    <h2 id="resume">What I was doing untill now</h2>
+    <h2 id="resume">What I was doing until now</h2>
     <TimelineDetection />
 
     <h2 id="contact">Contact me</h2>
@@ -53,18 +53,18 @@
 </template>
 
 <script>
-import SkillsGrid from '../components/SkillsGrid';
-import VideoPlayer from '../components/VideoPlayer';
-import TimelineDetection from '../components/TimelineDetection';
-import Contact from '../components/Contact';
-import hoverEffect from 'hover-effect';
+import SkillsGrid from "../components/SkillsGrid";
+import VideoPlayer from "../components/VideoPlayer";
+import TimelineDetection from "../components/TimelineDetection";
+import Contact from "../components/Contact";
+import hoverEffect from "hover-effect";
 
 export default {
   components: {
     SkillsGrid: SkillsGrid,
     VideoPlayer,
     TimelineDetection,
-    Contact,
+    Contact
   },
   data() {
     return {
@@ -81,23 +81,23 @@ export default {
           medium: 600,
           large: 700,
           xlarge: 800,
-          huge: 900,
+          huge: 900
         },
         sources: [
           {
-            src: require('../assets/julia_krysytyna_gruszczynska.mp4'),
-            type: 'video/mp4',
-          },
-        ],
-      },
+            src: require("../assets/julia_krysytyna_gruszczynska.mp4"),
+            type: "video/mp4"
+          }
+        ]
+      }
       // publicPath: process.env.BASE_URL,
     };
   },
 
   methods: {
     playing() {
-      console.log(' we are watching!!!');
-    },
+      console.log(" we are watching!!!");
+    }
   },
 
   mounted() {
@@ -106,12 +106,12 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/hovers/hover-img-video/aboutMehover1.jpg'),
-      image2: require('../assets/hovers/hover-img-video/aboutMehover2.jpg'),
-      displacementImage: require('../assets/bump22.png'),
-      easing: 'slow',
+      image1: require("../assets/hovers/hover-img-video/aboutMehover1.jpg"),
+      image2: require("../assets/hovers/hover-img-video/aboutMehover2.jpg"),
+      displacementImage: require("../assets/bump22.png"),
+      easing: "slow"
     });
-  },
+  }
 };
 </script>
 
@@ -187,7 +187,7 @@ export default {
   }
 }
 
-@import '../styles/_jello-keyframes.scss';
+@import "../styles/_jello-keyframes.scss";
 
 .col1 {
   align-items: center;

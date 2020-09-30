@@ -4,7 +4,7 @@
       <div class="link underline">
         <div class="img" ref="hoverWorks"></div>
         <div class="name hover hover-3">
-          Works
+          Projects
         </div>
       </div>
     </router-link>
@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import hoverEffect from 'hover-effect';
+import hoverEffect from "hover-effect";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {},
   mounted() {
     new hoverEffect({
@@ -31,10 +31,10 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/hovers/hover-img-video/about-hover2-min.jpg'),
-      image2: require('../assets/hovers/hover-img-video/about-hover1-min.jpg'),
-      displacementImage: require('../assets/bump22.png'),
-      easing: 'slow',
+      image1: require("../assets/hovers/hover-img-video/about-hover2-min.jpg"),
+      image2: require("../assets/hovers/hover-img-video/about-hover1-min.jpg"),
+      displacementImage: require("../assets/bump22.png"),
+      easing: "slow"
     });
 
     new hoverEffect({
@@ -42,17 +42,17 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/hovers/hover-img-video/planxl-hov2.jpg'),
-      image2: require('../assets/hovers/hover-img-video/elektro3-1 copy.jpg'),
-      displacementImage: require('../assets/bump22.png'),
-      easing: 'slow',
+      image1: require("../assets/hovers/hover-img-video/planxl-hov2.jpg"),
+      image2: require("../assets/hovers/hover-img-video/elektro3-1 copy.jpg"),
+      displacementImage: require("../assets/bump22.png"),
+      easing: "slow"
     });
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/_line-hover.scss';
+@import "../styles/_line-hover.scss";
 
 .home {
   display: flex;

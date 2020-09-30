@@ -40,6 +40,7 @@
       </div>
 
       <intersect
+        :threshold="[0.75]"
         @enter="lineWidth('#line-video', '40%')"
         @leave="lineWidth('#line-video', '0%')"
       >
@@ -50,6 +51,7 @@
       </intersect>
 
       <intersect
+        :threshold="[0.75]"
         @enter="lineWidth('#line-code', '40%')"
         @leave="lineWidth('#line-code', '0%')"
       >
@@ -60,6 +62,7 @@
       </intersect>
 
       <intersect
+        :threshold="[0.75]"
         @enter="lineWidth('#line-design', '40%')"
         @leave="lineWidth('#line-design', '0%')"
       >
@@ -73,29 +76,29 @@
 </template>
 
 <script>
-import ProjectGrid from '../components/ProjectGrid';
-import ProjectsVideo from '../data/projects-video.json';
-import ProjectsCode from '../data/projects-code.json';
-import ProjectsDesign from '../data/projects-design.json';
-import Intersect from 'vue-intersect';
+import ProjectGrid from "../components/ProjectGrid";
+import ProjectsVideo from "../data/projects-video.json";
+import ProjectsCode from "../data/projects-code.json";
+import ProjectsDesign from "../data/projects-design.json";
+import Intersect from "vue-intersect";
 
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-import hoverEffect from 'hover-effect';
+import hoverEffect from "hover-effect";
 
 export default {
   components: {
     ProjectGrid,
-    Intersect,
+    Intersect
   },
   data() {
     return {
       videoProjects: ProjectsVideo,
       codeProjects: ProjectsCode,
-      designProjects: ProjectsDesign,
+      designProjects: ProjectsDesign
     };
   },
 
@@ -104,7 +107,7 @@ export default {
       gsap.to(window, {
         duration: duration,
         scrollTo: { y: el, offsetY: 55 },
-        ease: 'power2',
+        ease: "power2"
       });
     },
 
@@ -112,9 +115,9 @@ export default {
       gsap.to(el, {
         duration: 0.3,
         width: val,
-        ease: 'power2',
+        ease: "power2"
       });
-    },
+    }
   },
 
   mounted() {
@@ -123,10 +126,10 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/hovers/hover-img-video/elektro3-1 copy.jpg'),
-      image2: require('../assets/hovers/hover-img-video/wyscig30.jpg'),
-      displacementImage: require('../assets/bump22.png'),
-      easing: 'slow',
+      image1: require("../assets/hovers/hover-img-video/elektro3-1 copy.jpg"),
+      image2: require("../assets/hovers/hover-img-video/wyscig30.jpg"),
+      displacementImage: require("../assets/bump22.png"),
+      easing: "slow"
     });
 
     new hoverEffect({
@@ -134,10 +137,10 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/hovers/hover-img-video/planxlap3d-hov.jpg'),
-      image2: require('../assets/hovers/hover-img-video/planxl-hov2.jpg'),
-      displacementImage: require('../assets/bump22.png'),
-      easing: 'slow',
+      image1: require("../assets/hovers/hover-img-video/planxlap3d-hov.jpg"),
+      image2: require("../assets/hovers/hover-img-video/planxl-hov2.jpg"),
+      displacementImage: require("../assets/bump22.png"),
+      easing: "slow"
     });
 
     new hoverEffect({
@@ -145,17 +148,17 @@ export default {
       intensity1: 0.1,
       intensity2: 0.1,
       angle2: Math.PI / 2,
-      image1: require('../assets/hovers/hover-img-video/krise3-hov.png'),
-      image2: require('../assets/hovers/hover-img-video/outsbjerg_mock.jpg'),
-      displacementImage: require('../assets/bump22.png'),
-      easing: 'slow',
+      image1: require("../assets/hovers/hover-img-video/krise3-hov.png"),
+      image2: require("../assets/hovers/hover-img-video/outsbjerg_mock.jpg"),
+      displacementImage: require("../assets/bump22.png"),
+      easing: "slow"
     });
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/_line-hover.scss';
+@import "../styles/_line-hover.scss";
 .work {
   width: 100%;
 
@@ -232,7 +235,7 @@ export default {
 }
 
 .page-position {
-  padding: 4em 0em 4em 1em;
+  padding: 4em 0 4em 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -247,7 +250,7 @@ export default {
   cursor: pointer;
 
   &::before {
-    content: '';
+    content: "";
     width: 1rem;
     height: 1rem;
     background-color: var(--bg-primary);
@@ -271,8 +274,11 @@ export default {
   width: 100%;
   @include flex-center();
   margin-bottom: 9rem;
-  justify-content: flex-end; // margin: 1rem 3rem 5rem 3rem;
-  // height: calc(100vh - 18 rem);
+  justify-content: flex-end;
+
+  //.sticky-control:nth-last-child(1) {
+  //  margin-bottom: 1rem;
+  //}
   h4,
   h5 {
     text-align: left;

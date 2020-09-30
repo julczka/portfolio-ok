@@ -34,7 +34,7 @@ export default {
   name: "timeline-vertical",
   data() {
     return {
-      steps: resume,
+      steps: resume
     };
   },
 
@@ -54,10 +54,10 @@ export default {
       // },
       navigation: {
         nextEl: ".next-slide",
-        prevEl: ".prev-slide",
-      },
+        prevEl: ".prev-slide"
+      }
     });
-  },
+  }
 };
 </script>
 
@@ -114,6 +114,8 @@ export default {
 
 .status p {
   color: var(--text-secondary);
+  text-align: justify;
+  text-justify: inter-word;
 }
 .status h5:before {
   content: "";

@@ -1,8 +1,11 @@
 <template>
   <div class="project_details">
     <div class="details-row">
-      <div class="gallery-container">
-        <div class="image" v-if="currentProject.videoSrc">
+      <div :class="isApp ? 'gallery-container-vertical' : 'gallery-container'">
+        <div
+          :class="isApp ? 'image-vertical' : 'image'"
+          v-if="currentProject.videoSrc"
+        >
           <iframe
             v-if="currentProject.videoSrc"
             :src="currentProject.videoSrc"
@@ -11,7 +14,7 @@
             allowfullscreen
             width="100%"
             height="100%"
-            style="position:absolute; top:0; left: 0"
+            style="position:absolute; top:0; left: 0;"
           ></iframe>
         </div>
         <img
@@ -24,9 +27,7 @@
       </div>
 
       <div class="text left ">
-        <h1>
-          {{ currentProject.projectTitle }}
-        </h1>
+        <h1>{{ currentProject.projectTitle }}</h1>
         <h4>{{ currentProject.category }}</h4>
         <p>{{ currentProject.description }}</p>
 
@@ -71,25 +72,32 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
-import ProjectsVideo from '../data/projects-video.json';
-import ProjectsCode from '../data/projects-code.json';
-import ProjectsDesign from '../data/projects-design.json';
+import { Carousel, Slide } from "vue-carousel";
+import ProjectsVideo from "../data/projects-video.json";
+import ProjectsCode from "../data/projects-code.json";
+import ProjectsDesign from "../data/projects-design.json";
 
 export default {
   components: {
     Carousel,
-    Slide,
+    Slide
+  },
+
+  computed: {
+    isApp() {
+      return this.$route.path === "/project/8";
+    }
   },
   data() {
     return {
       projectId: this.$route.params.id,
-      currentProject: ProjectsVideo.filter(p => p.id == this.$route.params.id).pop()
-                    || ProjectsCode.filter(p => p.id == this.$route.params.id).pop()
-                  || ProjectsDesign.filter(p => p.id == this.$route.params.id).pop(),
-      images: this.$route.params.images,
+      currentProject:
+        ProjectsVideo.filter(p => p.id == this.$route.params.id).pop() ||
+        ProjectsCode.filter(p => p.id == this.$route.params.id).pop() ||
+        ProjectsDesign.filter(p => p.id == this.$route.params.id).pop(),
+      images: this.$route.params.images
     };
-  },
+  }
 };
 </script>
 
@@ -115,6 +123,11 @@ export default {
   margin: 0 2em 0 5em;
 }
 
+.gallery-container-vertical {
+  width: 25%;
+  margin: 0 2em 0 5em;
+}
+
 .carousel-container {
   width: 80%;
   margin: 5em 0;
@@ -125,6 +138,15 @@ export default {
   overflow: hidden;
   width: 100%;
   padding-top: 56.25%;
+  position: relative;
+  display: block;
+}
+
+.image-vertical {
+  overflow: hidden;
+  width: 100%;
+
+  padding-top: 177.77%;
   position: relative;
   display: block;
 }
@@ -154,6 +176,8 @@ p {
   font-family: futura-pt, sans-serif;
   color: var(--text-secondary);
   font-size: 1.2rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .left {
@@ -171,6 +195,11 @@ p {
   .gallery-container,
   .text {
     width: 82%;
+    margin: 0 0 3em 0;
+  }
+
+  .gallery-container-vertical {
+    width: 95%;
     margin: 0 0 3em 0;
   }
 

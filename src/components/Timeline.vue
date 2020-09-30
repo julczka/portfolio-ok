@@ -30,7 +30,7 @@ export default {
   name: "timeline",
   data() {
     return {
-      steps: resume,
+      steps: resume
     };
   },
 
@@ -42,14 +42,14 @@ export default {
       grabCursor: true,
       pagination: {
         el: ".swiper-pagination",
-        clickable: true,
+        clickable: true
       },
       navigation: {
         nextEl: ".next-slide",
-        prevEl: ".prev-slide",
-      },
+        prevEl: ".prev-slide"
+      }
     });
-  },
+  }
 };
 </script>
 
@@ -126,6 +126,8 @@ export default {
 
 .status p {
   color: var(--text-secondary);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .timeline-link {

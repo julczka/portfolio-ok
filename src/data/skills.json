@@ -112,5 +112,19 @@
     "icon": "fas fa-tv",
     "category": "film",
     "awesome": true
+  },
+  {
+    "id": 17,
+    "name": "Unity",
+    "icon": "Unity",
+    "category": "code",
+    "awesome": false
+  },
+  {
+    "id": 18,
+    "name": "Blender",
+    "icon": "Blender",
+    "category": "design",
+    "awesome": false
   }
 ]
