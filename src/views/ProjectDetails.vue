@@ -37,6 +37,11 @@
           <a v-if="currentProject.pageLink" :href="currentProject.pageLink"
             ><button class="button">Live site</button></a
           >
+          <a v-if="currentProject.sourceLink" :href="currentProject.sourceLink"
+            ><button class="button">
+              <i class="fab fa-github"></i>Repository
+            </button></a
+          >
           <router-link to="/Works">
             <button class="button">Back to works</button>
           </router-link>
