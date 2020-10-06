@@ -22,7 +22,7 @@
     "description": "Rhei is a mobile application prototype aimed to improve the mental wellbeing of its users and to connect them. It was an exam project in the second semester of my study progamme, developed within 3 weeks long sprint. The design process included ideas for different features and their user flow, creating a brand identity for the product, and developing an application’s user interface prototype. Vala Heath, a British telemedicine company, and it's CEO Pete Trainor was acting as our major stakeholder during the design and development process. The project received a maximum grade. ",
     "myRole": "I was the lead developer. Among my tasks were: animations, color theming, the \"calm down\" feature, and chat integration. I also participated heavily in the design process of the page and initial user research.",
     "videoSrc": "https://rhei-prototype.netlify.app/",
-    "pageLink": "https://rhei-prototype.netlify.app/",
+    "pageLink": "https://rhei-prototype-mobile.netlify.app/",
     "sourceLink": "https://github.com/team-awesome-EASV/rhei",
     "imgCover": "projects/code/2/rhei-logo-black.png",
     "images": []
